@@ -40,6 +40,7 @@ section {
     height: 100%; 
     width: 60vw !important;
     position: fixed;
+    border: 2px solid #575aad;
     /* top: 90px;  */
     left: 0;
     background-color: rgb(247, 245, 245);
@@ -61,39 +62,41 @@ h1 {
     color: white;
 }
 
+.title, .subtitle {
+    text-align: center;
+}
+
 /*--Daily Forecast */
-.card {
-    border: 7px solid #575aad;
-    /* border-color:  linear-gradient(to right, #feb47b, #575aad); */
-	margin-right: 5%;
-    margin-left: 5%;
-}
-
-
-h2 {
+#country-title, #global-title{
+    text-align: center;
     font-size: 30px;
-    text-align: left;
     font-weight: bolder;
-    padding: 20px;
+    color: whitesmoke;
+    /* background-color: #404040; */
+    background: linear-gradient(to right,#743ad5, #575aad, #8765a8);
+
+}
+.card, .country-container{
+    border: 2px solid #575aad;
+    /* border-color:  linear-gradient(to right, #feb47b, #575aad); */
+	margin-right: 30%;
+	margin-left: 10%;
+
+    width: auto;
+    height: auto;
+    max-width: 500px;
 }
 
-p {
-    padding-bottom: 250px;
-    color: grey;
+#global-container, .country-container {
+    color: rgb(230, 0, 0);
+    background-color: #404040;
+
 }
 
-a {
-    font-size: 18px;
-    color: grey;
-    line-height: 35px;
+hr{
+    background-color: gray;
 }
 
-ul {
-    color: grey;
-    font-size: 18px;
-    line-height: 24px;
-    padding-left: 20px;
-}
 
 
 
@@ -102,10 +105,10 @@ html {
 	width: 100%;
 }
 
+.global-stats-container{
+    padding-bottom: 0px;
+    background-color: #404040;
 
-.subtitle {
-	padding: 20px;
-	font-size: 150%;
 }
 
 .stats-container {
@@ -116,12 +119,12 @@ html {
 .location-container {
 	display: inline-block;
 }
-.data-container {
+/* .data-container {
 	border: 2px solid #feb47b;
 	margin-right: 30%;
 	margin-left: 30%;
 
-}
+} */
 h4 {
 	font-size: 85%;
  	color: gray;

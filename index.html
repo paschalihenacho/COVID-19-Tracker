@@ -30,41 +30,55 @@
                 <input id="input" class="form-control my-0 py-1" type="text" placeholder="Enter country name to get records" aria-label="Search">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="search"><i class="fas fa-search"
-                        aria-hidden="true"></i></span>
-                        
+                        aria-hidden="true"></i></span>    
                 </div>
-
             </div>
             <span id="error"></span>
+            
         </div>
     </aside>
 
  <!-- Main container with Daily Weather and 5-Day Forecast-->
     <main class="container">
+
+        <section class="row container">
+            <div class="col-md-12">
+                <div class="card-deck col s12 m container">
+                    <div class="country-container">
+                        <h1 id="country-title">National</h1>
+                       <div class="stats-container">
+                           <h4 class="subtitle">Confirmed Cases</h4>
+                           <h1 class="title" id="cases"></h1>
+                           <h4 class="subtitle">Total Deaths</h4>
+                           <h1 class="title" id="deaths"></h1>
+                           <h4 class="subtitle">Deaths Percentage</h4>
+                           <h1 class="title" id="percent"></h1>
+                       </div>
+                       <div class="location-container">
+                           <h4 class="subtitle">Country</h4>
+                           <h1 class="title" id="country"></h1>
+                           <h4 class="subtitle">Population</h4>
+                           <h1 class="title" id="population"></h1>
+                           <h4 class="subtitle">Last Updated</h4>
+                           <h1 class="title" id="update"></h1>
+                       </div>
+                   </div>
+                   <div id="global-container">
+                    <h1 id="global-title">Global</h1>
+                    <div class="global-stats-container">
+                        <h4 class="subtitle">Total Confirmed</h4>
+                        <h1 class="title" id="global-cases"></h1>
+                        <hr>
+                        <h4 class="subtitle">Total Deaths</h4>
+                        <h1 class="title" id="global-deaths"></h1>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </section> 
        
          <!-- Row with Daily Weather -->
-        <div class="row container">    
-                <div class="card">
-                    <div id="dailyWeather" class="body">
-                        <div class="stats-container">
-                        <h4>Cases:</h4>
-                        <h1 id="cases"></h1>
-                        <h4>Deaths:</h4>
-                        <h1 id="deaths"></h1>
-                        <h4>Deaths Percentage:</h4>
-                        <h1 id="percent"></h1>
-                    </div>
-                    <div class="location-container">
-                        <h4>Country:</h4>
-                        <h1 id="country"></h1>
-                        <h4>Population:</h4>
-                        <h1 id="population"></h1>
-                        <h4>Last Updated:</h4>
-                        <h1 id="update"></h1>
-                    </div>
-                    </div>
-                </div>   
-        </div>
 
         <!-- Rows with 5-day forcast & header -->
         <div class="row">
