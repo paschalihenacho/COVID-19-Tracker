@@ -15,7 +15,7 @@
 header {
     font-size: 40px;
     font-weight: bolder;
-    background-color:  #575aad;
+    background: linear-gradient(to right,#8765a8,#743ad5, #575aad);
     color: white;
     text-align: center;
     padding: 25px;
@@ -63,7 +63,8 @@ h1 {
 
 /*--Daily Forecast */
 .card {
-    border: 3px solid #575aad;
+    border: 7px solid #575aad;
+    /* border-color:  linear-gradient(to right, #feb47b, #575aad); */
 	margin-right: 5%;
 	margin-left: 5%;
 }
