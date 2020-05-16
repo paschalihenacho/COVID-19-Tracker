@@ -24,6 +24,16 @@ function loadData(baseURL) {
         console.log(data.locations[0].country_population)
         console.log(baseURL);
     })
+<<<<<<< HEAD
+
+    function myLineChart() { new Chart(ctx, {
+        type: 'line',
+        data: [20, 10],
+        options: showLines,
+        backgroundColor: 'rgba(102, 254, , 0.1)',
+        label: 
+    });
+=======
          
 }
 $('#search').click(function(event) {
@@ -39,4 +49,5 @@ $('#country').text (countryName)
   // loadData(newURL);
 })
 
+>>>>>>> 2c8cb0e2b7461e966424199c3c75cc3cb82e9751
 })
