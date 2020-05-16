@@ -27,4 +27,12 @@ $(document).ready(function() {
         
         loadData();
     })
+
+    function myLineChart() { new Chart(ctx, {
+        type: 'line',
+        data: [20, 10],
+        options: showLines,
+        backgroundColor: 'rgba(102, 254, , 0.1)',
+        label: 
+    });
 })
