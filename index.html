@@ -1,98 +1,97 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
     <title>Covid-19 Tracker</title>
-    
     <!-- CSS Style -->
     <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-
-    <!-- Header -->
-    <header class="row">
-        <div class="col-md-12" id="header">COVID-19 Tracker</div>
-    </header>
-
-    <!-- Search Bar Columns -->
-    <aside class="row">
-        <div class="col-md-3 form-group" id="sideNav">
-            <h1>Search for a Country:</h1>
-            <div id="countryInput" class="input-group md-form form-sm form-1 pl-0">
-                <input id="input" class="form-control my-0 py-1" type="text" placeholder="Enter country name to get records" aria-label="Search">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="search"><i class="fas fa-search"
-                        aria-hidden="true"></i></span>
-                        
-                </div>
-
+<nav id="nav-bar" class="navbar">
+    <a class="navbar-brand" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">
+      <img id="icon" src="./images/icon.png" width="180" height="100"alt="">
+    </a>
+    <div id="name-title" class="col-md-8">COVID-19 Tracker</div>
+</nav>
+<div id="sideNav" class="row">
+    <form class="container-fluid">
+      <div class="">
+        <h1>Search for a Country</h1>
+        <div id="aacountryInput" class="input-field col s6">
+            <input name="countryInput" id="countryInput" class="form-control my-0 py-1" type="text" placeholder="Enter country name" aria-label="Search">
+            <div>
+                <span class="" id="search"><i class="fas fa-search"
+                    aria-hidden="true"></i></span>    
             </div>
-            <span id="error"></span>
         </div>
-    </aside>
-
- <!-- Main container with Daily Weather and 5-Day Forecast-->
-    <main class="container">
-       
-         <!-- Row with Daily Weather -->
-        <div class="row container">    
-                <div class="card">
-                    <div id="dailyWeather" class="body">
-                        <div class="stats-container">
-                        <h4>Cases:</h4>
-                        <h1 id="cases"></h1>
-                        <h4>Deaths:</h4>
-                        <h1 id="deaths"></h1>
-                        <h4>Deaths Percentage:</h4>
-                        <h1 id="percent"></h1>
-                    </div>
-                    <div class="location-container">
-                        <h4>Country:</h4>
-                        <h1 id="country"></h1>
-                        <h4>Population:</h4>
-                        <h1 id="population"></h1>
-                        <h4>Last Updated:</h4>
-                        <h1 id="update"></h1>
-                    </div>
-                    </div>
-                </div>   
-        </div>
-
-        <!-- Rows with 5-day forcast & header -->
-        <div class="row">
-            <div class="col-md-12" id="fiveDay">
-        </div>
-
-        <section class="row">
-            <div class="col-md-12" id="dailyforcast">
-                <div class="card-deck col s12 m">
-                    <div id="day1">  
-                    </div>
-
-                    <div id="day2">   
-                    </div>
-
-                    <div id="day3">  
-                    </div>
-
-                    <div id="day4">
-                    </div>
-
-                    <div id="day5"> 
-                    </div>
-                </div>
+        <span id="error"></span>
+      </div>
+    </form>
+</div>
+<main class=" container  row">
+    <div  id="cardDiv" class=" col s12 m6 ">
+        
+          <div class="card country-container darken-1">
+            <div class="card-content white-text">
+              <span id="country-title" class="card-title">Country</span>
+              <div class="country-container">
+                <h4 class="subtitle">Country</h4>
+                <h1 class="title" id="country"></h1>
+                <hr>
+                <h4 class="subtitle">Population</h4>
+                <h1 class="title" id="country-population"></h1>
+                <hr>
+                <h4 class="subtitle">Last Updated</h4>
+                <h1 class="title" id="update"></h1>
+                <hr>
             </div>
-        </section> 
-
-    </main>
+              <div class="stats-container">
+                <h4 class="subtitle">Confirmed Cases</h4>
+                <h1 class="title" id="country-cases"></h1>
+                <hr>
+                <h4 class="subtitle">Total Deaths</h4>
+                <h1 class="title" id="deaths"></h1>
+                <hr>
+                <h4 class="subtitle">Deaths Percentage</h4>
+                <h1 class="title" id="percent"></h1>
+                <hr>
+            </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card global-container darken-1">
+            <div class="card-content white-text">
+              <span id="global-title" class="card-title">Global</span>
+              <div class="global-container">
+                <h4 class="subtitle">Total Confirmed</h4>
+                <h1 class="title" id="global-cases"></h1>
+                <hr>
+                <h4 class="subtitle">Total Deaths</h4>
+                <h1 class="title" id="global-deaths"></h1>
+                <hr>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+</main>
     <footer >
          <!-- class="text-muted" -->
         <div class="container">
