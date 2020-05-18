@@ -6,55 +6,40 @@
     padding: 0px;
     font-family: 'Open Sans', sans-serif;
 }
-
-/* body {
+ body {
     font-size: 16px;
     line-height: 1;
-} */
+    background-color: rgb(255, 250, 250);
+} 
 
-header {
-    font-size: 40px;
+
+#nav-bar {
+    background-color: #575aad;
+    font-size: 40px !important;
     font-weight: bolder;
-    background: linear-gradient(to right,#8765a8,#743ad5, #575aad);
-    color: white;
+    height: auto;
+}
+
+
+#name-title{
     text-align: center;
-    padding: 25px;
 }
 
-.container {
-    width: 100%;
-    padding-top: 20px;
-    clear: both;
-    float: right;
+
+#search, #input {
+
+    /* position: fixed; */
+    padding: 10px;
+
 }
-
-section {
-    overflow: auto;
-    clear: both;
-    width: 100%;
-  }
-
-/* Search for a city sidebar */
-
-#sideNav {
-    height: 100%; 
-    width: 60vw !important;
-    position: fixed;
-    border: 2px solid #575aad;
-    /* top: 90px;  */
-    left: 0;
-    background-color: rgb(247, 245, 245);
-}
-
-h1 {
-    font-size: 20px;
-    text-align: left;
-    padding: 20px 0px 10px 5px;   
-}
-
-#search {
+#search{
+    border-radius: 100%;
     background-color: #575aad;
 }
+#input {
+    width: auto;
+}
+
 #error{
     color: red;
 }
@@ -62,72 +47,69 @@ h1 {
     color: white;
 }
 
+h1 {
+    font: outline;
+    font-size: 20px;
+    padding: 20px;
+}
 .title, .subtitle {
     text-align: center;
 }
 
-/*--Daily Forecast */
+
 #country-title, #global-title{
     text-align: center;
     font-size: 30px;
     font-weight: bolder;
     color: whitesmoke;
-    /* background-color: #404040; */
-    background: linear-gradient(to right,#743ad5, #575aad, #8765a8);
 
 }
-.card, .country-container{
-    border: 2px solid #575aad;
-    /* border-color:  linear-gradient(to right, #feb47b, #575aad); */
-	margin-right: 30%;
-	margin-left: 10%;
+.card {
+    min-width: 60px;
+    text-align: center;
+    border-radius: 40px;
+    min-height: 60px;
 
-    width: auto;
-    height: auto;
-    max-width: 500px;
+}
+#cardDiv {
+    margin: 15px;
+    align-items: center;
+    position: relative;
+}
+.card-title{
+    border-bottom: 2px solid;
+    padding: 20px;
 }
 
-#global-container, .country-container {
+
+.global-container, .country-container {
     color: rgb(230, 0, 0);
     background-color: #404040;
+    font-weight: bolder;
+    text-align: center;
 
 }
 
 hr{
-    background-color: gray;
+    background-color: black;
 }
 
 
 
 
-html {
-	height: 100%;
-	width: 100%;
+
+.container {
+    display: block;
 }
 
-.global-stats-container{
-    padding-bottom: 0px;
-    background-color: #404040;
-
+.country-container, .stats-container {
+    display: inline-block;
+    text-align: center;
 }
 
-.stats-container {
-	text-align: center;
-	float: right;
-	display: inline-block;
-}
-.location-container {
-	display: inline-block;
-}
-/* .data-container {
-	border: 2px solid #feb47b;
-	margin-right: 30%;
-	margin-left: 30%;
-
-} */
 h4 {
 	font-size: 85%;
- 	color: gray;
+ 	color: whitesmoke;
  	font-family: 'Roboto', sans-serif;
  	font-weight: 300;
  	text-align: center;
@@ -142,16 +124,23 @@ h4 {
 @media screen and (max-width: 576px) {
     .navbar-brand {
     text-align: center;
-    padding: 0 auto;
-    width: 100%;
+    padding: 15px;
+}
+
+.card{
+    display: block;
+    padding: 10px;
 }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .navbar-brand { 
     text-align: center;
-    padding: 0 auto;
-    width: 100%;
+    padding: 15px;
+}
+
+.card{
+    padding: 10px;
 }
 }
 
@@ -164,7 +153,7 @@ footer {
     text-align: center;
     padding-bottom: 10px;
     background-color: #575aad;
-    /* padding-top: 10px; */
+    padding-top: 10px;
     font-size: 12px;
     align-items: center;
   }
