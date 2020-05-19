@@ -1,24 +1,34 @@
-var ctx = document.getElementById('myChart').getContext('2d');
-var timeline = ;
-var sortedData = [];
+var myChart = document.getElementById('#myChart').getContext('2d');
 
-    for (let [key, value] of Object.entries(timeline)) {
-        console.log(`${key}: ${value}`);
-        sortedData.push(value);
-      }
-var chart = new Chart(ctx, {
+var chart = new Chart(myChart, {
     // The type of chart we want to create
     type: 'line',
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(87, 232, 255)',
-            borderColor: 'rgb(30, 80, 90)',
-            data: sortedData
-        }]
+        labels: locations,
+        datasets: [
+        {
+            label: 'Confirmed',
+            data: latest.confirmed,
+            backgroundColor: '#cccccc'
+        },
+
+        {
+            label: 'Recovered',
+            data: latest.recovered,
+            backgroundColor: '#dddddd'
+
+        },
+
+        {
+            label: 'Deaths',
+            data: latest.deaths,
+            backgroundColor: '#eeeeee'
+
+        },
+
+        ],
     },
 
     // Configuration options go here

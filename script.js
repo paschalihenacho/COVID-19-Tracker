@@ -44,13 +44,11 @@ function showCountry(data) {
         $('#country-cases').text (totalConfirmedCountry);
         $('#country-population').text (countryPopulation);
         console.log(data);
-<<<<<<< HEAD
         console.log(data.locations[0].country_population)
         console.log(baseURL);
     })       
 }
 
-=======
 
 
          
@@ -60,7 +58,6 @@ function showCountry(data) {
 
 
 
->>>>>>> f768eb54391647e4e27927398d58c966263de80d
 $('#search').click(function(event) {
     event.preventDefault();
     //var baseURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true" + "&country=" + countryName;
