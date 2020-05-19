@@ -33,9 +33,28 @@ function showCountry(data) {
     
         var countryPopulation = data.locations[0].country_population;
 
-        var lastUpaded = data.locations[0].last_updated;
-//
-        var percentageOfCountryDeath = ((parseInt()(deaths)/parseInt(totalConfirmedCountry))
+        let lastUpaded = new Date(data.locations[0].last_updated);
+        let dd = lastUpaded.getDate();
+
+        let mm = lastUpaded.getMonth()+1; 
+        const yyyy = lastUpaded.getFullYear();
+        if(dd<10) 
+        {
+        dd=`0${dd}`;
+        } 
+
+        if(mm<10) 
+        {
+        mm=`0${mm}`;
+        } 
+
+        lastUpaded = `${mm}/${dd}/${yyyy}`;
+
+
+       // var lastUpaded = new Date.parse(data.locations[0].last_updated);
+       // var lastUpaded = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(data.locations[0].last_updated)
+        var percentageOfCountryDeath = ((parseInt(data.latest.deaths)) / (parseInt(totalConfirmedCountry))
+       
             *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
 
         // appending data to UI
@@ -48,99 +67,57 @@ function showCountry(data) {
 
         console.log(data);
 
-        
+      //  setTimeout(showCountry, 2000) // update every 2 secs
        
-}
-
-var colors = ['#007bff','#28a745','#444444','#c3e6cb','#dc3545','#6c757d'];
-
-var chBar = document.getElementById("chBar");
-var chartData = {
-  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-  datasets: [{
-    data: [589, 445, 483, 503, 689, 692, 634],
-    backgroundColor: colors[0]
-  },
-  {
-    data: [209, 245, 383, 403, 589, 692, 580],
-    backgroundColor: colors[1]
-  },
-  {
-    data: [489, 135, 483, 290, 189, 603, 600],
-    backgroundColor: colors[2]
-  },
-  {
-    data: [639, 465, 493, 478, 589, 632, 674],
-    backgroundColor: colors[4]
-  }]
-};
-
-if (chBar) {
-  new Chart(chBar, {
-  type: 'bar',
-  data: chartData,
-  options: {
-    scales: {
-      xAxes: [{
-        barPercentage: 0.4,
-        categoryPercentage: 0.5
-      }],
-      yAxes: [{
-        ticks: {
-          beginAtZero: false
-        }
-      }]
-    },
-    legend: {
-      display: false
-
     }
-}
+
+
+
+// , "August", "September", "October", "November", "December"
+ // ["January", "February", "March", "April", "May", "June", "July"],
+ const ctx = document.getElementById('Chart').getContext('2d');
+ const xlabels = [];
+ const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: xlabels,
+        //["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: 'Confirmed Cases',
+            fill: false,
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
 });
-}
 
 
 
-var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
-
-/* large line chart */
-var chLine = document.getElementById("chLine");
-var chartData = {
-  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-  datasets: [{
-    data: [589, 445, 483, 503, 689, 692, 634],
-    backgroundColor: 'transparent',
-    borderColor: colors[0],
-    borderWidth: 4,
-    pointBackgroundColor: colors[0]
-  },
-  {
-    data: [639, 465, 493, 478, 589, 632, 674],
-    backgroundColor: colors[3],
-    borderColor: colors[1],
-    borderWidth: 4,
-    pointBackgroundColor: colors[1]
-  }]
-};
-
-if (chLine) {
-  new Chart(chLine, {
-  type: 'line',
-  data: chartData,
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: false
-        }
-      }]
-    },
-    legend: {
-      display: false
-    }
-  }
-  });
-}
 
 
 $('#search').click(function(event) {
