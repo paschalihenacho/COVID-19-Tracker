@@ -1,7 +1,7 @@
 // $(document).ready(function() {
 
 // "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&country_code=AU&province=South%20Australia&county=Australia&timelines=true"
-//  = ((Number(deaths)/Number(confirmedCases))*100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
+// 
 //      if(countryName != '' || countryCode != '' || countryProvince != '') {
 // *******     Code goes here
 //    }else{
@@ -14,39 +14,39 @@ function buildQueryURL() {
     // queryURL is the url we'll use to query the API
     var  queryParams = $("#countryInput").val();
 
-    var queryURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true&country=" + queryParams;
+    var queryURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true&country=";
   
-   
-  // ===========================
-    // Logging the URL so we have access to it for troubleshooting
-   // console.log("---------------\nURL: " + queryURL + "\n---------------");
-    //console.log(queryURL + $.param(queryParams));
+    $('#country').text (queryParams)
+
     console.log(queryParams)
-    return queryURL
-    // + queryParams;
+    return queryURL + queryParams;
     
   }
 
 
 function showCountry(data) {
-   // var baseURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true";
-   console.log(data);
-    
 
-            
-       // var rating = response.Rated;
-       // Retrieving data
-        var totalConfirmedCountry = data.locations[0].confirmed;
-        console.log(data.locations[0].confirmed);
+        var totalConfirmedCountry = data.latest.confirmed; 
+
+        var totalDeathsCountry = data.latest.deaths
+    
         var countryPopulation = data.locations[0].country_population;
 
+        var lastUpaded = data.locations[0].last_updated;
+
+        var percentageOfCountryDeath = ((Number(deaths)/Number(totalConfirmedCountry))
+            *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
+
         // appending data to UI
+
+        $('#deaths').text (totalDeathsCountry);
         $('#country-cases').text (totalConfirmedCountry);
-        $('#country-population').text (countryPopulation);
+        $('#country-population').text (countryPopulation); 
+        $('#update').text (lastUpaded)
+        $('#percent').text (percentageOfCountryDeath)
+
         console.log(data);
-
-
-         
+       
 }
 
 
@@ -55,10 +55,9 @@ function showCountry(data) {
 
 $('#search').click(function(event) {
     event.preventDefault();
-    //var baseURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true" + "&country=" + countryName;
+
     queryURL = buildQueryURL();
    // countryName  = $("#input").val();
-   // $('#country').text (countryName)
 
    //showCountry(baseURL);
 

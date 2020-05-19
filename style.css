@@ -82,10 +82,13 @@ h1 {
 }
 
 
-.global-container, .country-container {
+.global-container, .country-container, .country-container, .stats-container  {
     color: rgb(230, 0, 0);
     background-color: #404040;
     font-weight: bolder;
+    text-align: center;
+
+    display: inline-block;
     text-align: center;
 
 }
@@ -102,10 +105,6 @@ hr{
     display: block;
 }
 
-.country-container, .stats-container {
-    display: inline-block;
-    text-align: center;
-}
 
 h4 {
 	font-size: 85%;
