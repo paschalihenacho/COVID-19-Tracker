@@ -34,7 +34,8 @@ function showCountry(data) {
 
         var lastUpaded = data.locations[0].last_updated;
 
-        var percentageOfCountryDeath = ((Number(deaths)/Number(totalConfirmedCountry))
+        var percentageOfCountryDeath = ((parseInt(data.latest.deaths)) / (parseInt(totalConfirmedCountry))
+        //((Number(deaths)/Number(totalConfirmedCountry))
             *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
 
         // appending data to UI
@@ -46,6 +47,7 @@ function showCountry(data) {
         $('#percent').text (percentageOfCountryDeath)
 
         console.log(data);
+        console.log(percentageOfCountryDeath)
        
 }
 
