@@ -64,13 +64,13 @@ h1 {
     color: whitesmoke;
 
 }
-.card {
+.country-container, .global-container {
     min-width: 60px;
     text-align: center;
     border-radius: 40px;
     min-height: 60px;
-
 }
+
 #cardDiv {
     margin: 15px;
     align-items: center;
@@ -79,6 +79,10 @@ h1 {
 .card-title{
     border-bottom: 2px solid;
     padding: 20px;
+}
+#chartCard{
+    background-color: whitesmoke;
+    width: 60vw;
 }
 
 
@@ -117,6 +121,8 @@ h4 {
  	padding-right: 20px;
  	padding-bottom: 5px;
 }
+
+
 
 /*--Media Queries */
 

@@ -11,6 +11,7 @@
 //var countryName  = '';
 
 function buildQueryURL() {
+
     // queryURL is the url we'll use to query the API
     var  queryParams = $("#countryInput").val();
 
@@ -33,8 +34,8 @@ function showCountry(data) {
         var countryPopulation = data.locations[0].country_population;
 
         var lastUpaded = data.locations[0].last_updated;
-
-        var percentageOfCountryDeath = ((Number(deaths)/Number(totalConfirmedCountry))
+//
+        var percentageOfCountryDeath = ((parseInt()(deaths)/parseInt(totalConfirmedCountry))
             *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
 
         // appending data to UI
@@ -46,11 +47,100 @@ function showCountry(data) {
         $('#percent').text (percentageOfCountryDeath)
 
         console.log(data);
+
+        
        
+}
+
+var colors = ['#007bff','#28a745','#444444','#c3e6cb','#dc3545','#6c757d'];
+
+var chBar = document.getElementById("chBar");
+var chartData = {
+  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+  datasets: [{
+    data: [589, 445, 483, 503, 689, 692, 634],
+    backgroundColor: colors[0]
+  },
+  {
+    data: [209, 245, 383, 403, 589, 692, 580],
+    backgroundColor: colors[1]
+  },
+  {
+    data: [489, 135, 483, 290, 189, 603, 600],
+    backgroundColor: colors[2]
+  },
+  {
+    data: [639, 465, 493, 478, 589, 632, 674],
+    backgroundColor: colors[4]
+  }]
+};
+
+if (chBar) {
+  new Chart(chBar, {
+  type: 'bar',
+  data: chartData,
+  options: {
+    scales: {
+      xAxes: [{
+        barPercentage: 0.4,
+        categoryPercentage: 0.5
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: false
+        }
+      }]
+    },
+    legend: {
+      display: false
+
+    }
+}
+});
 }
 
 
 
+var colors = ['#007bff','#28a745','#333333','#c3e6cb','#dc3545','#6c757d'];
+
+/* large line chart */
+var chLine = document.getElementById("chLine");
+var chartData = {
+  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+  datasets: [{
+    data: [589, 445, 483, 503, 689, 692, 634],
+    backgroundColor: 'transparent',
+    borderColor: colors[0],
+    borderWidth: 4,
+    pointBackgroundColor: colors[0]
+  },
+  {
+    data: [639, 465, 493, 478, 589, 632, 674],
+    backgroundColor: colors[3],
+    borderColor: colors[1],
+    borderWidth: 4,
+    pointBackgroundColor: colors[1]
+  }]
+};
+
+if (chLine) {
+  new Chart(chLine, {
+  type: 'line',
+  data: chartData,
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: false
+        }
+      }]
+    },
+    legend: {
+      display: false
+    }
+  }
+  });
+}
 
 
 $('#search').click(function(event) {
@@ -88,6 +178,8 @@ $.ajax({
         $('#global-cases').text (totalConfirmedGlobal)
         $('#global-deaths').text (totalDeathsGlobal)
      })
+
+     
 
 // function myLineChart() { new Chart(ctx, {
 //     type: 'line',
