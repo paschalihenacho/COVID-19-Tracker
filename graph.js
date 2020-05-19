@@ -10,20 +10,20 @@ var chart = new Chart(myChart, {
         datasets: [
         {
             label: 'Confirmed',
-            data: latest.confirmed,
+            data: data.latest.confirmed,
             backgroundColor: '#cccccc'
         },
 
         {
             label: 'Recovered',
-            data: latest.recovered,
+            data: data.latest.recovered,
             backgroundColor: '#dddddd'
 
         },
 
         {
             label: 'Deaths',
-            data: latest.deaths,
+            data: data.latest.deaths,
             backgroundColor: '#eeeeee'
 
         },
