@@ -9,81 +9,82 @@
 // //     }
 // var baseURL =  + countryName;
 //var countryName  = '';
-//$(document).ready(function(){
+$(document).ready(function(){
+// var chartURL = "https://thevirustracker.com/timeline/map-data.json"
 
+// var chartURL = "https://api.apify.com/v2/datasets/jaycEQiGMlb7aOmtI/items?format=json&clean=1"
+var chartURL = "https://api.covid19india.org/data.json"
 
-//var chartURL = "https://api.apify.com/v2/datasets/jaycEQiGMlb7aOmtI/items?format=json&clean=1"
-// var chartURL = "https://api.covid19india.org/data.json"
+ $.ajax({
+     url: chartURL,
+    method: "GET",
 
-// $.ajax({
-//     url: chartURL,
-//     method: "GET",
-
-//}).then(function(data) {
-//    console.log(data + "TESTING")
-//    console.log(data)
+ }).then(function(data) {
+  
+    console.log(data)
    
- //  var total_active, total_recovered, total_deaths, total_confirmed;
+  var total_active, total_recovered, total_deaths, total_confirmed;
 
-   // 4 empty arrays for chart
-//    var state = []
-//    var confirmed = []
-//    var recovered = []
-//    var deaths = []
+  // 4 empty arrays for chart
+   var state = []
+   var confirmed = []
+   var recovered = []
+   var deaths = []
 
-//     $.each(data.statewise, function(id, obj){
-//         state.push(obj.state)
-//         confirmed.push(obj.confirm)
-//         recovered.push(obj.recovered)
-//         deaths.push(obj.deaths)
+    $.each(data.statewise, function(id, obj){
+        state.push(obj.state)
+        confirmed.push(obj.confirmed)
+        recovered.push(obj.recovered)
+        deaths.push(obj.deaths)
 
   
-//     })
+  })
 
-//     state.shift()
-//     confirmed.shift()
-//     recovered.shift()
-//     deaths.shift()
+    state.shift()
+    confirmed.shift()
+    recovered.shift()
+    deaths.shift()
 
-   // console.log(state)
+  // console.log(state)
      
 
-//    total_active = data.statewise[0].active;
-//    total_confirmed = data.statewise[0].confirmed;
-//    total_recovered = data.statewise[0].recovered;
-//    total_deaths = data.statewise[0].deaths;
+   total_active = data.statewise[0].active;
+   total_confirmed = data.statewise[0].confirmed;
+   total_recovered = data.statewise[0].recovered;
+   total_deaths = data.statewise[0].deaths;
 
-//    $("#active").append(total_active);
-//    $("#confirmed").append(total_confirmed);
-//    $("recovered").append(total_recovered);
-//    $("#deceased").append(total_deaths);
+   $("#active").append(total_active);
+   $("#confirmed").append(total_confirmed);
+   $("recovered").append(total_recovered);
+   $("#deceased").append(total_deaths);
    
-   // 
-// var myChart = document.getElementById('myChart').getContext('2d');
+   
+var myChart = document.getElementById('myChart').getContext('2d');
 
-// var chart = new Chart(myChart, {
-//     type: 'line',
-//     data: {
-//         labels: state,
-//         datasets: [
-//             {
-//                 label: "Confirmed Cases",
-//                 data: confirmed,
-//                 backgroundColor: "#f1c40f",
-//                 minBarLength: 100
-//             },
-//             {
-//                 label: "Recovered Cases",
-//                 data: recovered,
-//                 backgroundColor: "green",
-//                 minBarLength: 100
-//             }
-//         ]
-//     },
-//     options:{}
-// })
+var chart = new Chart(myChart, {
+    type: 'line',
+    fill: true,
+    data: {
+        labels: state,
+        datasets: [
+            {
+                label: "Confirmed Cases",
+                data: confirmed,
+                backgroundColor: "#f1c40f",
+                minBarLength: 100
+            },
+            {
+                label: "Recovered Cases",
+                data: recovered,
+                backgroundColor: "green",
+                minBarLength: 100
+            }
+        ]
+    },
+    options:{}
+})
 
-//})
+})
 
 
 //   var settings = {
@@ -102,10 +103,12 @@
 // });
 
 
-//})
+})
+
+
 
 function buildQueryURL() {
-
+    if(queryParams != '') {
     // queryURL is the url we'll use to query the API
     var  queryParams = $("#countryInput").val();
 
@@ -116,6 +119,9 @@ function buildQueryURL() {
     console.log(queryParams)
     return queryURL + queryParams;
     
+}else{
+              $("#error").html('Field cannot be empty');
+        }
   }
 
 
@@ -164,69 +170,69 @@ function showCountry(data) {
 
       //  setTimeout(showCountry, 2000) // update every 2 secs
 //========================================================================================
-      var total_deaths, total_confirmed, total_recovered ;
+//       var total_deaths, total_confirmed, total_recovered ;
 
-   // 4 empty arrays for chart
-   var timelines = []
-   var recovered = [] 
-   var confirmed = []
-   var deaths = []
+//    // 4 empty arrays for chart
+//    var timelines = []
+//    var recovered = [] 
+//    var confirmed = []
+//    var deaths = []
 
-    $.each(data.locations, function(id, obj){
-        timelines.push(obj.timelines)
-        confirmed.push(obj.confirmed)
-        recovered.push(obj.recovered)
-        deaths.push(obj.deaths)
+//     $.each(data.locations, function(id, obj){
+//         timelines.push(obj.timelines)
+//         confirmed.push(obj.confirmed)
+//         recovered.push(obj.recovered)
+//         deaths.push(obj.deaths)
 
   
-    })
+//     })
 
-    timelines.shift()
-    confirmed.shift()
-    recovered.shift()
-    deaths.shift()
+//     timelines.shift()
+//     confirmed.shift()
+//     recovered.shift()
+//     deaths.shift()
 
-   // console.log(state)
+//    // console.log(state)
      
 
-   total_active = data.locations[0].timelines;
-   total_confirmed = data.locations[0].confirmed;
-   total_recovered = data.locations[0].recovered;
-   total_deaths = data.locations[0].deaths;
+//    total_active = data.locations[0].timelines;
+//    total_confirmed = data.locations[0].confirmed;
+//    total_recovered = data.locations[0].recovered;
+//    total_deaths = data.locations[0].deaths;
 
-   $("#active").append(total_active);
-   $("#confirmed").append(total_confirmed);
-   $("recovered").append(total_recovered);
-   $("#deceased").append(total_deaths);
-      var myChart = document.getElementById('myChart').getContext('2d');
+//    $("#active").append(total_active);
+//    $("#confirmed").append(total_confirmed);
+//    $("recovered").append(total_recovered);
+//    $("#deceased").append(total_deaths);
+//       var myChart = document.getElementById('myChart').getContext('2d');
 
-        var chart = new Chart(myChart, {
-    type: 'line',
-    data: {
-        labels: timelines,
-        datasets: [
-            {
-                label: "Deaths",
-                data: deaths,
-                backgroundColor: "Red",
-                minBarLength: 100
-            },
-            {
-                label: "Recovered Cases",
-                data: recovered,
-                backgroundColor: "green",
-                minBarLength: 100
-            },
-            {
-                label: "Confirmed Cases",
-                data: confirmed,
-                backgroundColor: "Yellow",
-                minBarLength: 100
-            }
-        ]
-    },
-    options:{}
-})
+//         var chart = new Chart(myChart, {
+//     type: 'line',
+//     data: {
+//         labels: timelines,
+//         datasets: [
+//             {
+//                 label: "Deaths",
+//                 data: deaths,
+//                 backgroundColor: "Red",
+//                 minBarLength: 100
+//             },
+//             {
+//                 label: "Recovered Cases",
+//                 data: recovered,
+//                 backgroundColor: "green",
+//                 minBarLength: 100
+//             },
+//             {
+//                 label: "Confirmed Cases",
+//                 data: confirmed,
+//                 backgroundColor: "Yellow",
+//                 minBarLength: 100
+//             }
+//         ]
+//     },
+//     options:{}
+// })
 
 }
 //===============================================================================
@@ -244,13 +250,14 @@ $.ajax({
 })
  // AJAX CALL FOR GLOBAL DATA
     var globalURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true"
+    //var globalURL = "https://thevirustracker.com/free-api?global=stats"
 
      $.ajax({
          url: globalURL,
          method: "GET",
 
      }).then(function(data) {
-       // console.log(data)
+        console.log(data)
             
          var totalConfirmedGlobal = data.latest.confirmed;
          var totalDeathsGlobal = data.latest.deaths;
