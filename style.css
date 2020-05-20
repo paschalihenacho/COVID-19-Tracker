@@ -26,16 +26,18 @@
 }
 
 
-#search, #input {
+#searchCountry, #input {
 
     /* position: fixed; */
     padding: 10px;
-
+}
+#searchForm{
+    text-align: center;
 }
 #search{
-    border-radius: 100%;
-    background-color: #575aad;
+    color: yellow;
 }
+
 #input {
     width: auto;
 }
@@ -71,6 +73,9 @@ h1 {
     min-height: 60px;
     width: auto;
 }
+#countryInput{
+    min-width: 300px;
+}
 
 #cardDiv {
     margin: 15px;
@@ -90,7 +95,7 @@ h1 {
 
 
 .global-container, .country-container, .country-container, .stats-container  {
-    color: rgb(230, 0, 0);
+    color: yellow;
     background-color: #404040;
     font-weight: bolder;
     text-align: center;
@@ -132,12 +137,12 @@ h4 {
 @media screen and (max-width: 576px) {
     .navbar-brand {
     text-align: center;
-    padding: 15px;
+    /* padding: 15px; */
 }
 
 .card{
     display: block;
-    padding: 10px;
+    /* padding: 10px; */
 }
 }
 

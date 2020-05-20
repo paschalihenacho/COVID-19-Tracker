@@ -19,32 +19,25 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<nav id="nav-bar" class="navbar">
+<nav id="nav-bar" class="navbar text-center">
     <a class="navbar-brand" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">
-      <img id="icon" src="./images/icon.png" width="180" height="100"alt="">
+      <img id="icon" src="./images/icon.png" width="200" height="120"alt="">
     </a>
     <div id="name-title" class="col-md-8">COVID-19 Tracker</div>
+
+  <form id="searchForm" class="form-inline">
+    <h1 class="search-for-country">Search for a Country:</h1>
+    <input name="countryInput" id="countryInput" class="form-control mr-sm-2"  placeholder="Search" aria-label="Search">
+    
+    <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
 </nav>
-<div id="sideNav" class="row">
-    <form class="container-fluid">
-      <div class="">
-        <h1>Search for a Country</h1>
-        <!-- id="countryInput" -->
-        <div  class="input-field col s6">
-            <input name="countryInput" id="countryInput" class="form-control my-0 py-1" type="text" placeholder="Enter country name" aria-label="Search">
-            <div>
-                <span class="" id="search"><i class="fas fa-search"
-                    aria-hidden="true"></i></span>    
-            </div>
-        </div>
-        <span id="error"></span>
-      </div>
-    </form>
-</div>
-<main class=" container  row">
-    <div  id="cardDiv" class=" col s12 m6 ">
+
+<main class=" container">
+  <section>
+    <div  id="cardDiv" class=" col s12 m6">
         
-          <div class="card country-container darken-1">
+          <div class="card country-container darken-1 p-5">
             <div class="card-content white-text">
               <span id="country-title" class="card-title">Country</span>
               <div class="country-container">
@@ -62,10 +55,10 @@
                 <h4 class="subtitle">Confirmed Cases</h4>
                 <h1 class="title" id="country-cases"></h1>
                 <hr>
-                <h4 class="subtitle">Total Deaths</h4>
+                <h4 class="subtitle">Total Deceased</h4>
                 <h1 class="title" id="deaths"></h1>
                 <hr>
-                <h4 class="subtitle">Deaths Percentage</h4>
+                <h4 class="subtitle">Deceased Percentage</h4>
                 <h1 class="title" id="percent"></h1>
                 <hr>
             </div>
@@ -76,13 +69,13 @@
       <div class="row">
         <div class="col s12 m6">
           <div class="card global-container darken-1">
-            <div class="card-content white-text">
+            <div class=" container card-content white-text">
               <span id="global-title" class="card-title">Global</span>
               <div class="global-container">
                 <h4 class="subtitle">Total Confirmed</h4>
                 <h1 class="title" id="global-cases"></h1>
                 <hr>
-                <h4 class="subtitle">Total Deaths</h4>
+                <h4 class="subtitle">Total Deceased</h4>
                 <h1 class="title" id="global-deaths"></h1>
                 <hr>
             </div>
@@ -91,20 +84,40 @@
         </div>
       </div>
     </div>
+  </section>
+
+    <section>
+      <div class="container my-5">
+        <div class="row text-center">
+          <div class="col-3 text-warning">
+            <h5>Confirmed</h5>
+            <p id="confirmed"></p>
+          </div>
+          <div class="col-3 text-info">
+            <h5>Active</h5>
+            <p id="active"></p>
+          </div>
+          <div class="col-3 text-success">
+            <h5>Recovered</h5>
+            <p id="recovered"></p>
+          </div>
+          <div class="col-3 text-danger">
+            <h5>Deceased</h5>
+            <p id="deceased"></p>
+          </div>
+        </div>
+      </div>
     <div class=" container-fluid">
       <div class="col">
         <div id="chartCard" class="card">
               <div class="card-body">
-                  <canvas id="Chart" height="150"></canvas>
+                  <canvas id="myChart" height="150"></canvas>
               </div>
           </div>
+        </div>
       </div>
-</div>
-
-<!-- <div >
-  <canvas id="canvas2"></canvas>
-</div>
-<button id="randomizeData">Randomize Data</button> -->
+      <!-- <canvas id="myChart"></canvas> -->
+    </section>
 </main>
     <footer >
          <!-- class="text-muted" -->
