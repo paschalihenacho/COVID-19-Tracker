@@ -77,6 +77,14 @@ h1 {
     min-width: 300px;
 }
 
+#dashboard {
+    background-color: #404040;
+}
+
+#stats {
+    background-color: #575aad;
+}
+
 #cardDiv {
     margin: 15px;
     align-items: center;
