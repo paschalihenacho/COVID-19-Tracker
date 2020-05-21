@@ -66,6 +66,8 @@ h1 {
     font-size: 30px;
     font-weight: bolder;
     color: whitesmoke;
+    border-radius: 2px solid whitesmoke;
+    background-color: transparent;
 
 }
 .country-container, .global-container {
