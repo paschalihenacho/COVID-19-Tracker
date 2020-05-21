@@ -33,10 +33,26 @@
   </form>
 </nav>
 
-<main class=" container">
+<main class=" container-lg">
+
   <section>
-    <div  id="cardDiv" >
-        
+    <div class="container">
+      <div class="row">
+        <div class="col"><div class="card global-container darken-1">
+                <div class=" container card-content white-text">
+                  <span id="global-title" class="card-title">Global</span>
+                  <div class="global-container">
+                    <h4 class="subtitle">Total Confirmed</h4>
+                    <h1 class="title" id="global-cases"></h1>
+                    <hr>
+                    <h4 class="subtitle">Total Deceased</h4>
+                    <h1 class="title" id="global-deaths"></h1>
+                    <hr>
+                </div>
+                </div>
+              </div>
+            </div>
+        <div class="col"><div id="cardDiv" >
           <div class="card country-container darken-1 p-5">
             <div class="card-content white-text">
               <span id="country-title" class="card-title">Country</span>
@@ -64,24 +80,9 @@
             </div>
             </div>
           </div>
-        
       </div>
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card global-container darken-1">
-            <div class=" container card-content white-text">
-              <span id="global-title" class="card-title">Global</span>
-              <div class="global-container">
-                <h4 class="subtitle">Total Confirmed</h4>
-                <h1 class="title" id="global-cases"></h1>
-                <hr>
-                <h4 class="subtitle">Total Deceased</h4>
-                <h1 class="title" id="global-deaths"></h1>
-                <hr>
-            </div>
-            </div>
-          </div>
-        </div>
+    </div>
+        <div class="w-100"></div>
       </div>
     </div>
   </section>
@@ -132,5 +133,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
