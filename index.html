@@ -93,21 +93,38 @@
       <div class="row" id="stats">
         <div class="container my-5">
           <div class="row text-center">            
-            <div class="col-3 text-warning">
+            <div class="us-stats-header col-3">
+              <h5>Tested</h5>
+              <p class="text-info" id="total_TestedResults"></p>
+            </div>
+            <div class="us-stats-header col-3">
+              <h5>Hospitalized</h5>
+              <p class="text-warning" id="total_hospitalized"></p>
+            </div>
+            <div class="us-stats-header col-3 ">
               <h5>Confirmed</h5>
-              <p id="confirmed"></p>
+              <p class="text-warning" id="total_confirmed"></p>
             </div>
-            <div class="col-3 text-info">
-              <h5>Active</h5>
-              <p id="active"></p>
+          </div>
+
+          <div class="row text-center "> 
+            <div class="us-stats-header col-3">
+            <h5>On Ventilator</h5>
+            <p class="text-warning" id="onVentilator"></p>
+          </div>           
+            <div class="text-success col-3">
+              <h5 class="us-stats-header" >Recorvered</h5>
+              <p class="text-success" id="total_recovered"></p>
             </div>
-            <div class="col-3 text-success">
-              <h5>Recovered</h5>
-              <p id="recovered"></p>
-            </div>
-            <div class="col-3 text-danger">
+            <div class="us-stats-header col-3">
               <h5>Deceased</h5>
-              <p id="deceased"></p>
+              <p class="text-danger" id="total_deaths"></p>
+            </div>
+          </div>
+          <div class="text-center">            
+            <div class="us-stats-header col-12">
+              <h5>Last Updated</h5>
+              <p class="text-info" id="last_updated"></p>
             </div>
           </div>
         </div>
@@ -118,7 +135,7 @@
       <div class="col">
         <div id="chartCard" class="card">
               <div class="card-body">
-                  <canvas class="responsive" id="myChart" height="100"></canvas>
+                  <canvas class="responsive" id="myChart" height="150"></canvas>
               </div>
           </div>
         </div>
