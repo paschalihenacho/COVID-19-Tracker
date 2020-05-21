@@ -98,6 +98,16 @@ h1 {
     border-bottom: 2px solid;
     padding: 20px;
 }
+
+.united-states{
+text-align: center;
+padding-top: 10px;
+background-color: #575aad;
+color: #ECE8FF;
+font-size: 40px;
+font-weight: bolder;
+}
+
 #chartCard{
     background-color: whitesmoke;
     width: 90vw;
