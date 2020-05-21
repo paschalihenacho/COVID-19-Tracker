@@ -45,7 +45,7 @@ var chartURL = "https://api.covid19india.org/data.json"
     recovered.shift()
     deaths.shift()
 
-  // console.log(state)
+   // console.log(state)
      
 
    total_active = data.statewise[0].active;
@@ -62,8 +62,8 @@ var chartURL = "https://api.covid19india.org/data.json"
 var myChart = document.getElementById('myChart').getContext('2d');
 
 var chart = new Chart(myChart, {
-    type: 'line',
-    fill: true,
+    type: 'bar',
+    fill: false,
     data: {
         labels: state,
         datasets: [
@@ -87,29 +87,35 @@ var chart = new Chart(myChart, {
 })
 
 
-//   var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://covid-19-data.p.rapidapi.com/report/country/name?date-format=YYYY-MM-DD&format=json&date=2020-05-01&name=Nigeria",
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-//         "x-rapidapi-key": "409edfd192msh76f5ae7cd381374p17ad34jsn668e30d41ee5"
-//     }
-// }
-// var  queryParams = $("#countryInput").val();
-// $.ajax(settings).done(function (response) {
-//     console.log(response);
-// });
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://covid-19-data.p.rapidapi.com/report/country/name?date-format=YYYY-MM-DD&format=json&date=2020-05-01&name=usa",
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+        "x-rapidapi-key": "409edfd192msh76f5ae7cd381374p17ad34jsn668e30d41ee5"
+    }
+}
+//var  queryParams = $("#countryInput").val();
+$.ajax(settings).done(function (response) {
+    console.log(response[0].provinces[0]);
+});
 
 
-})
+ })
 
 
 
 function buildQueryURL() {
     if(queryParams != '') {
     // queryURL is the url we'll use to query the API
+        
+   // ******IMPORTANT******
+   //var queryURL =  "https://api.covid19api.com/live/country/US"
+ 
+
+
     var  queryParams = $("#countryInput").val();
 
     var queryURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true&country=";
@@ -165,8 +171,8 @@ function showCountry(data) {
         $('#update').text (lastUpaded)
         $('#percent').text (percentageOfCountryDeath)
 
-        console.log(data);
-        console.log(data.locations[0].timelines)
+        // console.log(data);
+        // console.log(data.locations[0].timelines)
 
       //  setTimeout(showCountry, 2000) // update every 2 secs
 //========================================================================================
@@ -250,7 +256,6 @@ $.ajax({
 })
  // AJAX CALL FOR GLOBAL DATA
     var globalURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true"
-    //var globalURL = "https://thevirustracker.com/free-api?global=stats"
 
      $.ajax({
          url: globalURL,
@@ -265,3 +270,23 @@ $.ajax({
         $('#global-cases').text (totalConfirmedGlobal)
         $('#global-deaths').text (totalDeathsGlobal)
      })
+
+  //  var TestqueryURL =  "https://api.covid19api.com/live/country/China"
+    //https://api.covid19api.com/summary
+    var TestqueryURL = "https://api.covid19api.com/live/country/US/status/confirmed"
+
+   $.ajax({
+    url: TestqueryURL,
+    method: "GET",
+
+}).then(function(data) {
+  // console.log(data)
+   console.log(data)
+   var totalDeath = 0;
+   for (i = 0; i < data.length; i++) {
+       totalDeath += data[i].Deaths;
+   }
+   console.log(totalDeath);
+
+
+})
