@@ -18,6 +18,7 @@
     font-size: 40px !important;
     font-weight: bolder;
     height: auto;
+    color: #ECE8FF;
 }
 
 
@@ -35,7 +36,8 @@
     text-align: center;
 }
 #search{
-    color: yellow;
+    color: #ECE8FF;
+    font-weight: bolder;
 }
 
 #input {
@@ -75,6 +77,16 @@ h1 {
 }
 #countryInput{
     min-width: 300px;
+    background-color: #ECE8FF;
+    border-radius: 15px;
+}
+
+#dashboard {
+    background-color: #404040;
+}
+
+#stats {
+    background-color: #575aad;
 }
 
 #cardDiv {
