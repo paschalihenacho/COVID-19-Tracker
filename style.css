@@ -98,6 +98,17 @@ h1 {
     border-bottom: 2px solid;
     padding: 20px;
 }
+.parentheses{
+    font-style: italic;
+    font-size: smaller;
+    color: wheat;
+}
+#message{
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 7px;
+    border-radius: 10px;
+}
 main {
     background-color: #575aad;
     padding-bottom: 80px;
@@ -112,8 +123,17 @@ font-weight: bolder;
 }
 .us-stats-header{
     color: white;
-    
 }
+#total_TestedResults, #total_hospitalized, #total_confirmed, #onVentilator,  #total_recovered, #total_deaths{
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 5px;
+}
+h5, #total_TestedResults, #total_hospitalized, #total_confirmed, #onVentilator,  #total_recovered, #total_deaths {
+    padding: 20px;
+    margin: 10px;
+}
+
 
 #chartCard{
     background-color: whitesmoke;
@@ -123,7 +143,7 @@ font-weight: bolder;
 }
 
 
-.global-container, .country-container, .country-container, .stats-container  {
+.global-container, .country-container, .country-container, .stats-container {
     color: yellow;
     background-color: #404040;
     font-weight: bolder;

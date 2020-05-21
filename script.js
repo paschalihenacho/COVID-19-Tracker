@@ -19,6 +19,7 @@ function buildQueryURL() {
 
 // This function appends searched country to the countryCard
 function showCountry(data) {
+    var countryName = $("#countryInput").val();
 
     var totalConfirmedCountry = data.latest.confirmed; 
 
@@ -44,90 +45,28 @@ function showCountry(data) {
 
         lastUpaded = `${mm}/${dd}/${yyyy}`;
 
+        // Message on country population and death percentage
+        var deathPercentageByCountryPopulation = ((parseInt(data.latest.deaths)) / (parseInt(countryPopulation))
+       
+        *100).toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigits: 4});
+
+        var message = `${deathPercentageByCountryPopulation} percent of ${countryName} population dead from COVID-19`
 
         var percentageOfCountryDeath = ((parseInt(data.latest.deaths)) / (parseInt(totalConfirmedCountry))
        
             *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
 
-        // appending data to UI
+        // appending data to UI 
 
+        $('#message').text (message); //
         $('#deaths').text (totalDeathsCountry); //
         $('#country-cases').text (totalConfirmedCountry); //
         $('#country-population').text (countryPopulation); 
         $('#update').text (lastUpaded)
         $('#percent').text (percentageOfCountryDeath)
-
-        // console.log(data);
-        // console.log(data.locations[0].timelines)
-
-      //  setTimeout(showCountry, 2000) // update every 2 secs
-//========================================================================================
-//       var total_deaths, total_confirmed, total_recovered ;
-
-//    // 4 empty arrays for chart
-//    var timelines = []
-//    var recovered = [] 
-//    var confirmed = []
-//    var deaths = []
-
-//     $.each(data.locations, function(id, obj){
-//         timelines.push(obj.timelines)
-//         confirmed.push(obj.confirmed)
-//         recovered.push(obj.recovered)
-//         deaths.push(obj.deaths)
-
-  
-//     })
-
-//     timelines.shift()
-//     confirmed.shift()
-//     recovered.shift()
-//     deaths.shift()
-
-//    // console.log(state)
-     
-
-//    total_active = data.locations[0].timelines;
-//    total_confirmed = data.locations[0].confirmed;
-//    total_recovered = data.locations[0].recovered;
-//    total_deaths = data.locations[0].deaths;
-
-//    $("#active").append(total_active);
-//    $("#confirmed").append(total_confirmed);
-//    $("recovered").append(total_recovered);
-//    $("#deceased").append(total_deaths);
-//       var myChart = document.getElementById('myChart').getContext('2d');
-
-//         var chart = new Chart(myChart, {
-//     type: 'line',
-//     data: {
-//         labels: timelines,
-//         datasets: [
-//             {
-//                 label: "Deaths",
-//                 data: deaths,
-//                 backgroundColor: "Red",
-//                 minBarLength: 100
-//             },
-//             {
-//                 label: "Recovered Cases",
-//                 data: recovered,
-//                 backgroundColor: "green",
-//                 minBarLength: 100
-//             },
-//             {
-//                 label: "Confirmed Cases",
-//                 data: confirmed,
-//                 backgroundColor: "Yellow",
-//                 minBarLength: 100
-//             }
-//         ]
-//     },
-//     options:{}
-// })
+        $('#country').text (countryName)
 
 }
-//===============================================================================
 
 $('#search').click(function(event) {
     event.preventDefault();
@@ -152,26 +91,14 @@ $.ajax({
             
          var totalConfirmedGlobal = data.latest.confirmed;
          var totalDeathsGlobal = data.latest.deaths;
-       // var totalRecoveredGlobal = data.latest.recovered;
+         
         $('#global-cases').text (totalConfirmedGlobal)
         $('#global-deaths').text (totalDeathsGlobal)
      })
 
-  
-
-  //  var TestqueryURL =  "https://api.covid19api.com/live/country/China"
-    //https://api.covid19api.com/summary
-    var TestqueryURL = "https://api.covid19api.com/live/country/US/status/confirmed"
-
-   $.ajax({
-    url: TestqueryURL,
-    method: "GET",
-
-})
-
-var infoURL = "https://covidtracking.com/api/states/info";
-var countryURL = "http://covidtracking.com/api/us";
-var stateURL = "https://covidtracking.com/api/states";
+    //var infoURL = "https://covidtracking.com/api/states/info";
+    var countryURL = "http://covidtracking.com/api/us";
+    var stateURL = "https://covidtracking.com/api/states";
 
 //============Begin Country Stats (United States)===================//
 $.ajax({
@@ -220,18 +147,8 @@ $.ajax({
          positive.push(obj.positive)
          recovered.push(obj.recovered)
          death.push(obj.death)
- 
    
    })
-
-   
- 
-    //  state.shift()
-    //  confirmed.shift()
-    //  recovered.shift()
-    //  deaths.shift()
- 
-    // console.log(state)
       
     total_confirmed = stateData[0].positive;
     total_recovered = stateData[0].recovered;
@@ -285,6 +202,5 @@ $.ajax({
         }
      }
  })
-   
-   })
+})
 })
