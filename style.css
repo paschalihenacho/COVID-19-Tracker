@@ -221,3 +221,5 @@ footer {
     font-size: 12px;
     align-items: center;
   }
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> /* CDN for materialize */
