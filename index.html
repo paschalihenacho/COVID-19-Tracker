@@ -8,8 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -20,17 +26,20 @@
 </head>
 <body>
 <nav id="nav-bar" class="navbar text-center">
-    <a class="navbar-brand" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">
-      <img id="icon" src="./images/icon.png" width="200" height="120"alt="">
-    </a>
-    <div id="name-title" class="col-md-8">COVID-19 Tracker</div>
-
-  <form id="searchForm" class="form-inline">
-    <h1 class="search-for-country">Search for a Country</h1>
-    <input name="countryInput" id="countryInput" class="form-control mr-sm-2"  placeholder="Search" aria-label="Search">
-    
-    <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
+    <div class="row">
+      <a class="navbar-brand col s2 center-align valign-wrapper" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">
+        <img id="icon" src="./images/icon.png" width="200" height="200" alt="covid-virus" class="center"> 
+      </a>
+      <div id="name-title" class="col s10 center-align valign-wrapper">COVID-19 Tracker</div>
+    </div>
+    <div class="row col s12 center-align valign-wrapper">
+      <form id="searchForm" class="form-inline">
+        <h1 class="search-for-country">Find the latest covid-19 stats globally:</h1>
+        <input name="countryInput" id="countryInput" class="form-control"  placeholder="Enter a Country" aria-label="Search">
+        <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+        <a id="meet-the-team-btn" href="#meet-the-team" class=" btn btn-outline-success">Meet The Team <span class="material-icons">group</span></a>
+    </div>
 </nav>
 
 <main class=" container-lg">
@@ -86,7 +95,7 @@
     </div>
     </div>
   </section>
-
+  <hr id="divider">
     <section>
      
         <div class="united-states">United States</div>
@@ -131,17 +140,59 @@
         </div>
       </div>
     </section>
-      
-    <div class="container-fluid">
+    <div class=" container-fluid">
       <div class="col">
         <div id="chartCard" class="card">
               <div class="card-body">
                   <canvas class="responsive" id="myChart" height="150"></canvas>
               </div>
           </div>
-        </div>
       </div>
+    </div>
+    <!-- MEET THE TEAM DIV -->
+    <hr id="divider">
+    <section id="meet-the-team" class="container">
+      <h1 class="meet-the-teamTxt">Meet The Team</h1>
+
+      <div class=" myGrid">
+          <div class="meet-the-team card">
+              <div class="card-body mySubGrid">
+                  <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan">
+                  <aside>
+                      <h2 class="card-title my-2">Name</h2>
+                      <p class="card-subtitle"><strong>Title</strong></p>
+                      <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me <span class="material-icons">call</span></a>
+                  </aside>
+              </div>
+          </div>
+
+          <div class="meet-the-team card">
+            <div class="card-body mySubGrid">
+                <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan">
+                <aside>
+                    <h2 class="card-title my-2">Name</h2>
+                    <p class="card-subtitle"><strong>Title</strong></p>
+                    <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me <span class="material-icons">call</span></a>
+                </aside>
+            </div>
+        </div>
+
+        <div class="meet-the-team card">
+          <div class="card-body mySubGrid">
+              <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan">
+              <aside>
+                  <h2 class="card-title my-2">Name</h2>
+                  <p class="card-subtitle"><strong>Title</strong></p>
+                  <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me <span class="material-icons">call</span></a>
+              </aside>
+          </div>
+      </div>
+
+          
+          </div>
+  </section>
 </main>
+
     <footer >
          <!-- class="text-muted" -->
         <div class="container">
@@ -153,6 +204,7 @@
   <!--link to JavaScript and jQuery & Moment -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> <!-- CDN for materialize -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="script.js"></script>
 

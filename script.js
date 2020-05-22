@@ -1,4 +1,17 @@
  $(document).ready(function() {
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+
+            var target = this.hash,
+                $target = $(target);
+
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 900, 'swing', function() {
+                window.location.hash = target;
+            });
+        });
+    });
 
 function buildQueryURL() {
    // if(queryParams != '') {
@@ -28,22 +41,7 @@ function showCountry(data) {
     var countryPopulation = data.locations[0].country_population;
 
     // Convert date
-    let lastUpaded = new Date(data.locations[0].last_updated);
-    let dd = lastUpaded.getDate();
-
-    let mm = lastUpaded.getMonth()+1; 
-    const yyyy = lastUpaded.getFullYear();
-    if(dd<10) 
-        {
-        dd=`0${dd}`;
-        } 
-
-        if(mm<10) 
-        {
-        mm=`0${mm}`;
-        } 
-
-        lastUpaded = `${mm}/${dd}/${yyyy}`;
+    var lastUpaded =  (moment(data.locations[0].last_updated).format('LL'));
 
         // Message on country population and death percentage
         var deathPercentageByCountryPopulation = ((parseInt(data.latest.deaths)) / (parseInt(countryPopulation))
@@ -115,7 +113,12 @@ $.ajax({
    onVentilator = countryURL[0].onVentilatorCurrently;
    total_recovered = countryURL[0].recovered;
    total_deaths = countryURL[0].death;
-   last_updated = countryURL[0].lastModified;
+   last_updated =  (moment(countryURL[0].lastModified).format('LLLL'));
+//    var dateFormat = require('dateformat');
+//     last_updated = new Date(countryURL[0].lastModified);
+//    dateFormat(last_updated, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+
+  
  
     $("#total_TestedResults").append(total_TestedResults);
     $("#total_hospitalized").append(total_hospitalized);
@@ -202,5 +205,4 @@ $.ajax({
         }
      }
  })
-})
 })
