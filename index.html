@@ -26,8 +26,8 @@
     <div id="name-title" class="col-md-8">COVID-19 Tracker</div>
 
   <form id="searchForm" class="form-inline">
-    <h1 class="search-for-country">Find the latest covid-19 stats globally:</h1>
-    <input name="countryInput" id="countryInput" class="form-control mr-sm-2"  placeholder="Enter a Country" aria-label="Search">
+    <h1 class="search-for-country">Search for a Country</h1>
+    <input name="countryInput" id="countryInput" class="form-control mr-sm-2"  placeholder="Search" aria-label="Search">
     
     <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
@@ -54,8 +54,9 @@
             </div>
         <div class="col"><div id="cardDiv" >
           <div class="card country-container darken-1 p-5">
+            <h6 id="message"></h6>
             <div class="card-content white-text">
-              <span id="country-title" class="card-title">Country</span>
+              <span id="country-title" class="card-title ">Country</span>
               <div class="country-container">
                 <h4 class="subtitle">Country</h4>
                 <h1 class="title" id="country"></h1>
@@ -74,7 +75,7 @@
                 <h4 class="subtitle">Total Deceased</h4>
                 <h1 class="title" id="deaths"></h1>
                 <hr>
-                <h4 class="subtitle">Deceased Percentage</h4>
+                <h4 class="subtitle">Death Percentage <p class="parentheses">(of Cornfirmed Cases)</p></h4>
                 <h1 class="title" id="percent"></h1>
                 <hr>
             </div>
@@ -87,24 +88,44 @@
   </section>
 
     <section>
+     
+        <div class="united-states">United States</div>
+    
       <div class="row" id="stats">
         <div class="container my-5">
-          <div class="row text-center">
-            <div class="col-3 text-warning">
+          <div class="row text-center">            
+            <div class="us-stats-header col-3">
+              <h5>Tested</h5>
+              <p class="text-info" id="total_TestedResults"></p>
+            </div>
+            <div class="us-stats-header col-3">
+              <h5>Hospitalized</h5>
+              <p class="text-warning" id="total_hospitalized"></p>
+            </div>
+            <div class="us-stats-header col-3 ">
               <h5>Confirmed</h5>
-              <p id="confirmed"></p>
+              <p class="text-warning" id="total_confirmed"></p>
             </div>
-            <div class="col-3 text-info">
-              <h5>Active</h5>
-              <p id="active"></p>
+          </div>
+
+          <div class="row text-center "> 
+            <div class="us-stats-header col-3">
+            <h5>On Ventilator</h5>
+            <p class="text-warning" id="onVentilator"></p>
+          </div>           
+            <div class="text-success col-3">
+              <h5 class="us-stats-header" >Recorvered</h5>
+              <p class="text-success" id="total_recovered"></p>
             </div>
-            <div class="col-3 text-success">
-              <h5>Recovered</h5>
-              <p id="recovered"></p>
-            </div>
-            <div class="col-3 text-danger">
+            <div class="us-stats-header col-3">
               <h5>Deceased</h5>
-              <p id="deceased"></p>
+              <p class="text-danger" id="total_deaths"></p>
+            </div>
+          </div>
+          <div class="text-center">            
+            <div class="us-stats-header col-12">
+              <h5>Last Updated</h5>
+              <p class="text-info" id="last_updated"></p>
             </div>
           </div>
         </div>
@@ -115,7 +136,7 @@
       <div class="col">
         <div id="chartCard" class="card">
               <div class="card-body">
-                  <canvas class="responsive" id="myChart" height="100"></canvas>
+                  <canvas class="responsive" id="myChart" height="150"></canvas>
               </div>
           </div>
         </div>
