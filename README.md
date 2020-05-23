@@ -25,10 +25,10 @@ Provide instructions and examples for use. Include screenshots as needed.
 
 1. Icon Image by CDC on unsplash.com
 2. https://github.com/ExpDev07/coronavirus-tracker-api
-3.  https://apify.com/covid-19 
+3. https://apify.com/covid-19 
 4. https://codingshiksha.com
 5. chart.js
-
+6. https://thevirustracker.com
 
 ## License
 
