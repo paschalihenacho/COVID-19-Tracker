@@ -2,7 +2,7 @@
 # LIVE: https://paschalihenacho.github.io/COVID-19-Tracker/
 ## Description
 
-In our app, we will be tracking Covid-19 statistics and presenting in a palatable way.  The app will provide a quick access to a countries official numbers to our current outbreak.
+In our app, we will be tracking Covid-19 statistics and presenting our result in an interactive dashboard, tracking the number of cases, deaths, and recoveries – by country, based on the open COVID-19 dataset provide by Johns Hopkins University.
 
 ## Table of Contents (Optional)
 
