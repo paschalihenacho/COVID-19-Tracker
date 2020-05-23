@@ -1,5 +1,7 @@
 /*--Overall Styling */
-
+#test{
+    height: 600;
+}
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -9,7 +11,7 @@
  body {
     font-size: 16px;
     line-height: 1;
-    background-color: thistle;
+    background-color: #575aad;
     overflow: auto;
 } 
 
@@ -29,6 +31,12 @@
 #meet-the-team-btn:hover{
     background-color: thistle;
     color: #575aad !important;
+    border: 1px solid #575aad !important;
+}
+#homebtn:hover{
+    background-color: thistle;
+    color: #575aad !important;
+    border: 1px solid #575aad !important;
 }
 
 .btn{
@@ -36,7 +44,7 @@
     border-radius: 15px;
     border: 1px solid thistle !important;
 }
-#meet-the-team-btn{
+#meet-the-team-btn, #homebtn{
     margin: 10px;
     height: 50px !important;
     border-radius: 15px;
@@ -115,7 +123,15 @@ h1 {
     color: whitesmoke;
     
 }
-
+/* =============GLOBAL SECTION========= */
+.global-stats-card{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.list-group-item{
+    text-align: center;
+}
+/* =============GLOBAL SECTION========= */
 #dashboard {
     background-color: #404040;
 }
@@ -153,7 +169,7 @@ main {
     background-color: #575aad;
     padding-bottom: 80px;
 }
-.united-states, .meet-the-teamTxt{
+.united-states, .meet-the-teamTxt, .global-stats{
 text-align: center;
 padding-top: 10px;
 background-color: #575aad;
@@ -250,9 +266,10 @@ h4 {
     background-color: thistle;
     display: block;
 }
-#divider{
+.divider{
     margin-top: 40px;
     border: 2px solid thistle;
+    width: 100vw !important;
 }
 .meet-the-team{
     /* padding-right: 1px !important; */
@@ -271,7 +288,7 @@ h4 {
     background-color: #575aad !important;
     border-style: solid;
     border: 2px solid thistle !important;
-    border-radius: 40px !important;
+    /* border-radius: 40px !important; */
     text-align: center;
 }
 
@@ -326,4 +343,4 @@ footer {
     align-items: center;
   }
 
-  /* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> CDN for materialize */
+  
