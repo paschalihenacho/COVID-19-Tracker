@@ -28,6 +28,7 @@ Provide instructions and examples for use. Include screenshots as needed.
 3.  https://apify.com/covid-19 
 4. https://codingshiksha.com
 5. chart.js
+6. https://thevirustracker.com/us-website-widget
 
 
 ## License
