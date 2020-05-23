@@ -48,7 +48,8 @@ function showCountry(data) {
        
         *100).toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigits: 4});
 
-        var message = `${deathPercentageByCountryPopulation} percent of ${countryName} population dead from COVID-19`
+        //var message = `${deathPercentageByCountryPopulation} percent of ${countryName} population dead from COVID-19`
+        var message = `${countryName} experienced a ${deathPercentageByCountryPopulation} % reduction in population due to COVID-19`
 
         var percentageOfCountryDeath = ((parseInt(data.latest.deaths)) / (parseInt(totalConfirmedCountry))
        
