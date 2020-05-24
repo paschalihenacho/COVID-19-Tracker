@@ -370,117 +370,17 @@ $.ajax({
 //   });
 
 
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://who-covid-19-data.p.rapidapi.com/api/data/dates",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "who-covid-19-data.p.rapidapi.com",
+		"x-rapidapi-key": "409edfd192msh76f5ae7cd381374p17ad34jsn668e30d41ee5"
+	}
+}
 
-
-
-
-
-
-
-
-
-//var queryURL = `https://api.covid19api.com/live/country/${queryParams}/status/confirmed`;
-   // var queryURL = `https://api.thevirustracker.com/free-api?countryTimeline=${queryParams}`
-
-  //  $('#country').text (queryParams)
-   // console.log(queryURL)
-   // console.log(queryParams)
-
-    $.ajax({
-        // url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
-        url: 'https://api.thevirustracker.com/free-api?countryTimeline=US',
-        dataType: 'json',
-        method: "GET",
-       }).then(function(data) {
-           console.log(data.timelineitems[0]['1/22/20'].new_daily_cases)
-    //    console.log(data.timelineitems)
-       // console.log(data.Global)
-           
-
-       var Confirmed, Recovered, Deaths, Active;
-      //var Date =  (moment(data.Date).format('LL'));
-       // 4 empty arrays for chart
-        var  characters = [''];
-        var Confirmed = [];
-        var Recovered = []
-        var Deaths = []
-        
-         // trying to grab all the items in "title", "total_cases", "total_recovered" and "total_deaths"
-         $.each(data.timelineitems[0], function( obj){
-            characters.push(obj.characters)
-            Confirmed.push(obj.Confirmed)
-            Recovered.push(obj.Recovered)
-            Deaths.push(obj.Deaths)
-
-            for(var i=0; i<characters.length; i++){
-                alert(characters[i]); // this will alert value one by one.
-                }
-
-        //   console.log(Province)
-    })
-
-    Confirmed = data.Confirmed;
-    Recovered = data.Recovered;
-    Deaths = data.Deaths;
- 
-        // $("#confirmed").append(Confirmed);
-        // $("#recovered").append(TotRecoveredalRecovered);
-        // $("#deceased").append(Deaths);
-    
-    
- var myCountryChart = document.getElementById('myCountryChart').getContext('2d');
- 
- var myCountryChart = new Chart(myCountryChart, {
-     type: 'bar',
-     fill: false,
-     data: {
-         labels: characters,
-         datasets: [
-             {
-                 label: "Cases",
-                 data: Confirmed,
-                 backgroundColor: "#f1c40f",
-                 minBarLength: 100
-             },
-             {
-                 label: "Active",
-                 data: Active,
-                 backgroundColor: "white",
-                 minBarLength: 100
-             },
-             {
-                label: "Recovered",
-                data: Recovered,
-                backgroundColor: "green",
-                minBarLength: 100
-            },
-             {
-                label: "Deceased",
-                data: Deaths,
-                backgroundColor: "red",
-                minBarLength: 200
-            }
-         ]
-     },
-     options:{
-        title: {
-            display: true,
-            text: 'US'
-        },
-        scales: {
-            xAxes: [{
-                // type: 'time',
-                // time: {
-                //     displayFormats: {
-                //         quarter: 'MMM YYYY'
-                //     }
-                // },
-                stacked: true
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
-     }
- })
-})
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
