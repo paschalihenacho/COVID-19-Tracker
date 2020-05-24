@@ -61,7 +61,11 @@ function buildCountryQueryURL() {
 
             app_date.push(DATA);
 
-            
+            cases_list.push(parseInt(DATA.total_cases.replace(/,/g,"")));
+
+            recovered_list.push(parseInt(DATA.total_recovered.replace(/,/g,"")));
+
+            deaths_list.push(parseInt(DATA.total_deaths.replace(/,/g,"")));
         })
     //})
 
@@ -100,7 +104,7 @@ function buildCountryQueryURL() {
      type: 'bar',
      fill: false,
      data: {
-         labels: Date,
+         labels: dates,
          datasets: [
              {
                  label: "Cases",
