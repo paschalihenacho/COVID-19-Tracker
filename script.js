@@ -388,11 +388,11 @@ $.ajax({
 
     $.ajax({
         // url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
-        url: 'https://api.covid19api.com/live/country/ghana/status/confirmed',
+        url: 'https://api.thevirustracker.com/free-api?countryTimeline=US',
         dataType: 'json',
         method: "GET",
        }).then(function(data) {
-           console.log(data[0].Date)
+           console.log(data.timelineitems[0]['1/22/20'].new_daily_cases)
     //    console.log(data.timelineitems)
        // console.log(data.Global)
            
@@ -400,21 +400,23 @@ $.ajax({
        var Confirmed, Recovered, Deaths, Active;
       //var Date =  (moment(data.Date).format('LL'));
        // 4 empty arrays for chart
-        var  Date = [];
+        var  characters = [''];
         var Confirmed = [];
         var Recovered = []
         var Deaths = []
         
          // trying to grab all the items in "title", "total_cases", "total_recovered" and "total_deaths"
-         $.each(data[0], function( obj){
-            Date.push(obj.Date)
+         $.each(data.timelineitems[0], function( obj){
+            characters.push(obj.characters)
             Confirmed.push(obj.Confirmed)
             Recovered.push(obj.Recovered)
             Deaths.push(obj.Deaths)
 
-        
+            for(var i=0; i<characters.length; i++){
+                alert(characters[i]); // this will alert value one by one.
+                }
 
-         //  console.log(Date)
+        //   console.log(Province)
     })
 
     Confirmed = data.Confirmed;
@@ -432,7 +434,7 @@ $.ajax({
      type: 'bar',
      fill: false,
      data: {
-         labels: Date,
+         labels: characters,
          datasets: [
              {
                  label: "Cases",
