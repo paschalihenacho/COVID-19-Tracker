@@ -36,15 +36,20 @@ function fetchData(user_country){
 	country_name_element.innerHTML = "Loading...";
 
 	cases_list = [], recovered_list =[], deaths_list = [], dates = [], formatedDates = [];
-	
-	fetch(`https://covid19-monitor-pro.p.rapidapi.com/coronavirus/cases_by_days_by_country.php?country=${user_country}`, {
+    
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+ 
+
+        "url": `https://covid19-monitor-pro.p.rapidapi.com/coronavirus/cases_by_days_by_country.php?country=${user_country}`,
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "covid19-monitor-pro.p.rapidapi.com",
-			"x-rapidapi-key": "7e269ec140msh8a5df9cfc21b4b4p1c1e3ejsn9aba26afc6e0"
+			"x-rapidapi-key": "409edfd192msh76f5ae7cd381374p17ad34jsn668e30d41ee5"
 		}
-	})
-	.then( response => {
+    
+    }.then( response => {
 		return response.json();
 	})
 	.then( data => {
@@ -141,4 +146,71 @@ function formatDate(dateString){
 	let date = new Date(dateString);
 
 	return `${date.getDate()} ${monthsNames[date.getMonth()]}`;
+}
+// SELECT SEARCH COUNTRY ELEMENTS
+const search_country_element = document.querySelector(".search-country");
+const country_list_element = document.querySelector(".country-list");
+const chang_country_btn = document.querySelector(".change-country");
+const close_list_btn = document.querySelector(".close");
+const input = document.getElementById('search-input')
+
+// CREATE TE COUNTRY LIST
+function createCountryList(){
+    const num_countries = country_list.length;
+
+    let i = 0, ul_list_id;
+
+    country_list.forEach( (country, index) => {
+        if( index % Math.ceil(num_countries/num_of_ul_lists) == 0){
+            ul_list_id = `list-${i}`;
+            country_list_element.innerHTML += `<ul id='${ul_list_id}'></ul>`;
+            i++;
+        }
+
+        document.getElementById(`${ul_list_id}`).innerHTML += `
+            <li onclick="fetchData('${country.name}')" id="${country.name}">
+            ${country.name}
+            </li>
+        `;
+    })
+}
+
+let num_of_ul_lists = 3;
+createCountryList();
+
+// SHOW/HIDE THE COUTRY LIST ON CLICK EVENT
+chang_country_btn.addEventListener("click", function(){
+    input.value = "";
+    resetCountryList();
+    search_country_element.classList.toggle("hide");
+    search_country_element.classList.add("fadeIn");
+});
+
+close_list_btn.addEventListener("click", function(){
+    search_country_element.classList.toggle("hide");
+});
+
+country_list_element.addEventListener("click", function(){
+    search_country_element.classList.toggle("hide");
+});
+
+// COUNTRY FILTER
+/* input event fires up whenever the value of the input changes */
+input.addEventListener("input", function(){
+    let value = input.value.toUpperCase();
+
+    country_list.forEach( country => {
+        if( country.name.toUpperCase().startsWith(value)){
+            document.getElementById(country.name).classList.remove("hide");
+        }else{
+            document.getElementById(country.name).classList.add("hide");
+        }
+    })
+})
+
+// RESET COUNTRY LIST (SHOW ALL THE COUNTRIES )
+function resetCountryList(){
+    country_list.forEach( country => {
+        document.getElementById(country.name).classList.remove("hide");
+    })
 }
