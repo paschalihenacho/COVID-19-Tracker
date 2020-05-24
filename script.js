@@ -36,109 +36,120 @@ function buildCountryQueryURL() {
      var queryParams = $("#countryInput").val();
   //  var queryParams = 'US'
 
-//      var queryURL = `https://api.covid19api.com/live/country/${queryParams}/status/confirmed`;
-//    // var queryURL = `https://api.thevirustracker.com/free-api?countryTimeline=${queryParams}`
+    //  var queryURL = `https://api.covid19api.com/live/country/${queryParams}/status/confirmed`;
+    var queryURL = `https://api.thevirustracker.com/free-api?countryTimeline=${queryParams}`
 
-//     $('#country').text (queryParams)
-//    // console.log(queryURL)
-//    // console.log(queryParams)
+    $('#country').text (queryParams)
+   // console.log(queryURL)
+   // console.log(queryParams)
 
-//     $.ajax({
-//         // url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
-//         url: queryURL,
-//         dataType: 'json',
-//         method: "GET",
-//        }).then(function(data) {
-//            console.log(data)
-//     //    console.log(data.timelineitems)
-//        // console.log(data.Global)
-           
+    $.ajax({
+        // url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
+        url: queryURL,
+        dataType: 'json',
+        method: "GET",
+    //    }).then(function(data) {
+    //        console.log(data)
+    }).then(data => {
 
-//        var Confirmed, Recovered, Deaths, Active;
-//       //var Date =  (moment(data.Date).format('LL'));
-//        // 4 empty arrays for chart
-//         var  Date = [];
-//         var Confirmed = [];
-//         var Recovered = []
-//         var Deaths = []
+        console.log(data)
+
+        dates = Object.keys(data);
+
+        dates.forEach(date => {
+            let DATA = data[date];
+
+            app_date.push(DATA);
+
+            
+        })
+    //})
+
+       var Confirmed, Recovered, Deaths, Active;
+      //var Date =  (moment(data.Date).format('LL'));
+       // 4 empty arrays for chart
+        var  Date = [];
+        var Confirmed = [];
+        var Recovered = []
+        var Deaths = []
         
-//          // trying to grab all the items in "title", "total_cases", "total_recovered" and "total_deaths"
-//          $.each(data, function( obj){
-//             Date.push(obj.Date)
-//             Confirmed.push(obj.Confirmed)
-//             Recovered.push(obj.Recovered)
-//             Deaths.push(obj.Deaths)
+         // trying to grab all the items in "title", "total_cases", "total_recovered" and "total_deaths"
+         $.each(data, function( obj){
+            Date.push(obj.Date)
+            Confirmed.push(obj.Confirmed)
+            Recovered.push(obj.Recovered)
+            Deaths.push(obj.Deaths)
 
         
 
-//          //   console.log(timelineitems)
-//     })
+         //   console.log(timelineitems)
+    })
 
-//     Confirmed = data.Confirmed;
-//     Recovered = data.Recovered;
-//     Deaths = data.Deaths;
+    Confirmed = data.Confirmed;
+    Recovered = data.Recovered;
+    Deaths = data.Deaths;
  
-//         // $("#confirmed").append(Confirmed);
-//         // $("#recovered").append(TotRecoveredalRecovered);
-//         // $("#deceased").append(Deaths);
+        // $("#confirmed").append(Confirmed);
+        // $("#recovered").append(TotRecoveredalRecovered);
+        // $("#deceased").append(Deaths);
     
     
-//  var myCountryChart = document.getElementById('myCountryChart').getContext('2d');
+ var myCountryChart = document.getElementById('myCountryChart').getContext('2d');
  
-//  var myCountryChart = new Chart(myCountryChart, {
-//      type: 'bar',
-//      fill: false,
-//      data: {
-//          labels: Date,
-//          datasets: [
-//              {
-//                  label: "Cases",
-//                  data: Confirmed,
-//                  backgroundColor: "#f1c40f",
-//                  minBarLength: 100
-//              },
-//              {
-//                  label: "Active",
-//                  data: Active,
-//                  backgroundColor: "white",
-//                  minBarLength: 100
-//              },
-//              {
-//                 label: "Recovered",
-//                 data: Recovered,
-//                 backgroundColor: "green",
-//                 minBarLength: 100
-//             },
-//              {
-//                 label: "Deceased",
-//                 data: Deaths,
-//                 backgroundColor: "red",
-//                 minBarLength: 200
-//             }
-//          ]
-//      },
-//      options:{
-//         title: {
-//             display: true,
-//             text: queryParams
-//         },
-//         scales: {
-//             xAxes: [{
-//                 // type: 'time',
-//                 // time: {
-//                 //     displayFormats: {
-//                 //         quarter: 'MMM YYYY'
-//                 //     }
-//                 // },
-//                 stacked: true
-//             }],
-//             yAxes: [{
-//                 stacked: true
-//             }]
-//         }
-//      }
-//  })
-// })
+ var myCountryChart = new Chart(myCountryChart, {
+     type: 'bar',
+     fill: false,
+     data: {
+         labels: Date,
+         datasets: [
+             {
+                 label: "Cases",
+                 data: Confirmed,
+                 backgroundColor: "#f1c40f",
+                 minBarLength: 100
+             },
+             {
+                 label: "Active",
+                 data: Active,
+                 backgroundColor: "white",
+                 minBarLength: 100
+             },
+             {
+                label: "Recovered",
+                data: Recovered,
+                backgroundColor: "green",
+                minBarLength: 100
+            },
+             {
+                label: "Deceased",
+                data: Deaths,
+                backgroundColor: "red",
+                minBarLength: 200
+            }
+         ]
+     },
+     options:{
+        title: {
+            display: true,
+            text: queryParams
+        },
+        scales: {
+            xAxes: [{
+                // type: 'time',
+                // time: {
+                //     displayFormats: {
+                //         quarter: 'MMM YYYY'
+                //     }
+                // },
+                stacked: true
+            }],
+            yAxes: [{
+                stacked: true
+            }]
+        }
+     }
+ })
+})
 
 
 }
@@ -370,17 +381,3 @@ $.ajax({
 //   });
 
 
-var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://who-covid-19-data.p.rapidapi.com/api/data/dates",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "who-covid-19-data.p.rapidapi.com",
-		"x-rapidapi-key": "409edfd192msh76f5ae7cd381374p17ad34jsn668e30d41ee5"
-	}
-}
-
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
