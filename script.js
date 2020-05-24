@@ -1,387 +1,144 @@
- $(document).ready(function() {
-        $('a[href^="#"]').on('click', function(e) {
-            e.preventDefault();
-
-            var target = this.hash,
-                $target = $(target);
-
-            $('html, body').stop().animate({
-                'scrollTop': $target.offset().top
-            }, 900, 'swing', function() {
-                window.location.hash = target;
-            });
-        });
-    });
-
-//function buildQueryURL() {
-   // if(queryParams != '') {
-    // queryURL is the url we'll use to query the API
-   // var  queryParams = $("#countryInput").val();
-
-   // var queryURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true&country=";
-  
-  //  $('#country').text (queryParams)
-
-  //  console.log(queryURL)
-   // return queryURL + queryParams;
-    
-// }else{
-//               $("#error").html('Field cannot be empty');
-//         }
- // }
-
-// This function appends searched country to the countryCard
-
-function buildCountryQueryURL() {
-     var queryParams = $("#countryInput").val();
-  //  var queryParams = 'US'
-
-    //  var queryURL = `https://api.covid19api.com/live/country/${queryParams}/status/confirmed`;
-    var queryURL = `https://api.thevirustracker.com/free-api?countryTimeline=${queryParams}`
-
-    $('#country').text (queryParams)
-   // console.log(queryURL)
-   // console.log(queryParams)
-
-    $.ajax({
-        // url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
-        url: queryURL,
-        dataType: 'json',
-        method: "GET",
-    //    }).then(function(data) {
-    //        console.log(data)
-    }).then(data => {
-
-        console.log(data)
-
-        dates = Object.keys(data);
-
-        dates.forEach(date => {
-            let DATA = data[date];
-
-            app_date.push(DATA);
-
-            cases_list.push(parseInt(DATA.total_cases.replace(/,/g,"")));
-
-            recovered_list.push(parseInt(DATA.total_recovered.replace(/,/g,"")));
-
-            deaths_list.push(parseInt(DATA.total_deaths.replace(/,/g,"")));
-        })
-    //})
-
-       var Confirmed, Recovered, Deaths, Active;
-      //var Date =  (moment(data.Date).format('LL'));
-       // 4 empty arrays for chart
-        var  Date = [];
-        var Confirmed = [];
-        var Recovered = []
-        var Deaths = []
-        
-         // trying to grab all the items in "title", "total_cases", "total_recovered" and "total_deaths"
-         $.each(data, function( obj){
-            Date.push(obj.Date)
-            Confirmed.push(obj.Confirmed)
-            Recovered.push(obj.Recovered)
-            Deaths.push(obj.Deaths)
-
-        
-
-         //   console.log(timelineitems)
-    })
-
-    Confirmed = data.Confirmed;
-    Recovered = data.Recovered;
-    Deaths = data.Deaths;
  
-        // $("#confirmed").append(Confirmed);
-        // $("#recovered").append(TotRecoveredalRecovered);
-        // $("#deceased").append(Deaths);
-    
-    
- var myCountryChart = document.getElementById('myCountryChart').getContext('2d');
- 
- var myCountryChart = new Chart(myCountryChart, {
-     type: 'bar',
-     fill: false,
-     data: {
-         labels: dates,
-         datasets: [
-             {
-                 label: "Cases",
-                 data: Confirmed,
-                 backgroundColor: "#f1c40f",
-                 minBarLength: 100
-             },
-             {
-                 label: "Active",
-                 data: Active,
-                 backgroundColor: "white",
-                 minBarLength: 100
-             },
-             {
-                label: "Recovered",
-                data: Recovered,
-                backgroundColor: "green",
-                minBarLength: 100
-            },
-             {
-                label: "Deceased",
-                data: Deaths,
-                backgroundColor: "red",
-                minBarLength: 200
-            }
-         ]
-     },
-     options:{
-        title: {
-            display: true,
-            text: queryParams
-        },
-        scales: {
-            xAxes: [{
-                // type: 'time',
-                // time: {
-                //     displayFormats: {
-                //         quarter: 'MMM YYYY'
-                //     }
-                // },
-                stacked: true
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
-     }
- })
-})
 
+// SELECT ALL ELEMENTS
+const country_name_element = document.querySelector(".country .name");
+const total_cases_element = document.querySelector(".total-cases .value");
+const new_cases_element = document.querySelector(".total-cases .new-value");
+const recovered_element = document.querySelector(".recovered .value");
+const new_recovered_element = document.querySelector(".recovered .new-value");
+const deaths_element = document.querySelector(".deaths .value");
+const new_deaths_element = document.querySelector(".deaths .new-value");
 
-}
-// buildCountryQueryURL()
-function showCountry(data) {
-    var countryName = $("#countryInput").val();
+const ctx = document.getElementById("axes_line_chart").getContext("2d");
 
-    var totalConfirmedCountry = data.latest.confirmed; 
+// APP VARIABLES
+let app_data = [],
+	cases_list = [],
+	recovered_list = [],
+	deaths_list = [],
+	deaths = [],
+	formatedDates = [];
 
-    var totalDeathsCountry = data.latest.deaths
-    
-    var countryPopulation = data.locations[0].country_population;
+// GET USERS COUNTRY CODE
+let country_code = geoplugin_countryCode();
+let user_country;
+country_list.forEach( country => {
+	if( country.code == country_code ){
+		user_country = country.name;
+	}
+});
 
-    // Convert date
-    var lastUpaded =  (moment(data.locations[0].last_updated).format('LL'));
+/* ---------------------------------------------- */
+/*                API URL AND KEY                 */
+/* ---------------------------------------------- */
 
-        // Message on country population and death percentage
-        var deathPercentageByCountryPopulation = ((parseInt(data.latest.deaths)) / (parseInt(countryPopulation))
-       
-        *100).toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigits: 4});
+function fetchData(user_country){
+	country_name_element.innerHTML = "Loading...";
 
-        //var message = `${deathPercentageByCountryPopulation} percent of ${countryName} population dead from COVID-19`
-        var message = `${countryName} experienced a ${deathPercentageByCountryPopulation} % reduction in population due to COVID-19`
+	cases_list = [], recovered_list =[], deaths_list = [], dates = [], formatedDates = [];
+	
+	fetch(`https://covid19-monitor-pro.p.rapidapi.com/coronavirus/cases_by_days_by_country.php?country=${user_country}`, {
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "covid19-monitor-pro.p.rapidapi.com",
+			"x-rapidapi-key": "7e269ec140msh8a5df9cfc21b4b4p1c1e3ejsn9aba26afc6e0"
+		}
+	})
+	.then( response => {
+		return response.json();
+	})
+	.then( data => {
+		dates = Object.keys(data);
+		
+		dates.forEach( date => {
+			let DATA = data[date];
 
-        var percentageOfCountryDeath = ((parseInt(data.latest.deaths)) / (parseInt(totalConfirmedCountry))
-       
-            *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
-
-        // appending data to UI 
-
-        $('#message').text (message); //
-        $('#deaths').text (totalDeathsCountry); //
-        $('#country-cases').text (totalConfirmedCountry); //
-        $('#country-population').text (countryPopulation); 
-        $('#update').text (lastUpaded)
-        $('#percent').text (percentageOfCountryDeath)
-        $('#country').text (countryName)
-
+			formatedDates.push(formatDate(date));
+			app_data.push(DATA);
+			cases_list.push(parseInt(DATA.total_cases.replace(/,/g, "")));
+			recovered_list.push(parseInt(DATA.total_recovered.replace(/,/g, "")));
+			deaths_list.push(parseInt(DATA.total_deaths.replace(/,/g, "")));
+		})
+	})
+	.then( () => {
+		updateUI();
+	})
+	.catch( error => {
+		//alert(error);
+	})
 }
 
-$('#search').click(function(event) {
-    event.preventDefault();
-    
-    queryURL = buildCountryQueryURL();
-    $("#myGlobalChart").empty();
-$.ajax({
-    url: queryURL,
-    method: "GET",
+fetchData(user_country);
 
-    }).then(showCountry);
-})
- // AJAX CALL FOR GLOBAL DATA
- $.ajax({
-    url: 'https://api.thevirustracker.com/free-api?global=stats',
-    dataType: 'json',
-    success: function(data) {
-    var total_cases = data.results[0].total_cases;
-    var GlobalTotal_recovered = data.results[0].total_recovered;
-    var total_unresolved = data.results[0].total_unresolved;
-    var GlobalDeaths = data.results[0].total_deaths;
-    var total_new_cases_today = data.results[0].total_new_cases_today;
-    var total_new_deaths_today = data.results[0].total_new_deaths_today;
-    var total_active_cases = data.results[0].total_active_cases;
-    var total_serious_cases = data.results[0].total_serious_cases;
-    var total_affected_countries = data.results[0].total_affected_countries;
+// UPDATE UI FUNCTION
+function updateUI(){
+	updateStats();
+	axesLinearChart();
+}
 
-    $('#total_cases').text (total_cases)
-    $('#GlobalTotal_recovered').text (GlobalTotal_recovered)
-    $('#total_unresolved').text (total_unresolved)
-    $('#GlobalDeaths').text (GlobalDeaths)
-    $('#total_new_cases_today').text (total_new_cases_today)
-    $('#total_new_deaths_today').text (total_new_deaths_today)
-    $('#total_active_cases').text (total_active_cases)
-    $('#total_serious_cases').text (total_serious_cases)
-    $('#total_affected_countries').text (total_affected_countries)
+function updateStats(){
+	let last_entry = app_data[app_data.length - 1];
+	let before_last_entry = app_data[app_data.length - 2];
 
-    }
-  });
+	country_name_element.innerHTML = last_entry.country_name;
 
-  // GLOBAL CHART DATA
-  $.ajax({
-    url: 'https://api.covid19api.com/summary',
-    dataType: 'json',
-    success: function(data) {
-    var UpDate =  (moment(data.Countries[0].Date).format('LLLL'));
+	total_cases_element.innerHTML = last_entry.total_cases || 0;
+	new_cases_element.innerHTML = `+${last_entry.new_cases || 0 }`;
 
-    $("#updated").append(UpDate);
+	recovered_element.innerHTML = last_entry.total_recovered || 0;
+	new_recovered_element.innerHTML = `+${parseInt(last_entry.total_recovered.replace(/,/g, "")) - parseInt(before_last_entry.total_recovered.replace(/,/g, ""))}`;
+	
+	deaths_element.innerHTML = last_entry.total_deaths;
+	new_deaths_element.innerHTML = `+${last_entry.new_deaths || 0}`;
+}
 
-    }
-  });
+// UPDATE CHART
+let my_chart;
+function axesLinearChart(){
 
-  $.ajax({
-     url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
-    dataType: 'json',
-    method: "GET",
-   }).then(function(data) {
-     //  console.log(data)
-//    console.log(data.timelineitems)
-   // console.log(data)
-       
+	if(my_chart){
+		my_chart.destroy();
+	}
 
-   var total_cases, total_recovered, total_deaths;
-  //var Date =  (moment(data.Date).format('LL'));
-   // 4 empty arrays for chart
-    var  title = [];
-    var total_cases = [];
-    var total_recovered = []
-    var total_deaths = []
-    
-     // trying to grab all the items in "title", "total_cases", "total_recovered" and "total_deaths"
-     $.each(data.countryitems[0], function( obj){
-        title.push(obj.title)
-        total_cases.push(obj.total_cases)
-        total_recovered.push(obj.total_recovered)
-        total_deaths.push(obj.total_deaths)
+	my_chart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			datasets: [{
+				label: 'Cases',
+				data: cases_list,
+				fill : false,
+				borderColor : '#FFF',
+				backgroundColor: '#FFF',
+				borderWidth : 1
+			},{
+				label: 'Recovered',
+				data: recovered_list,
+				fill : false,
+				borderColor : '#009688',
+				backgroundColor: '#009688',
+				borderWidth : 1
+			},{
+				label: 'Deaths',
+				data: deaths_list,
+				fill : false,
+				borderColor : '#f44336',
+				backgroundColor: '#f44336',
+				borderWidth : 1
+			}],
+			labels: formatedDates
+		},
+		options: {
+			responsive : true,
+			maintainAspectRatio : false
+		}
+	});
+}
 
-    
+// FORMAT DATES
+const monthsNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-       // console.log(title)
-})
+function formatDate(dateString){
+	let date = new Date(dateString);
 
-      //UpDate = data.Countries[0].Date;
-//    TotalConfirmed = data.Countries[0].TotalConfirmed;
-//    TotalRecovered = data.Countries[0].TotalRecovered;
-//    TotalDeaths = data.Countries[0].TotalDeaths;
-
-//     $("#recovered").append(TotalRecovered);
-//     $("#deceased").append(TotalDeaths);
-
-
-var myGlobalChart = document.getElementById('myGlobalChart').getContext('2d');
-
-var myGlobalChart = new Chart(myGlobalChart, {
- type: 'bar',
- fill: false,
- data: {
-     labels: title,
-     datasets: [
-         {
-             label: "Cases",
-             data: total_cases,
-             backgroundColor: "#f1c40f",
-             minBarLength: 100
-         },
-         {
-             label: "Recovered",
-             data: total_recovered,
-             backgroundColor: "green",
-             minBarLength: 100
-         },
-         {
-            label: "Deceased",
-            data: total_deaths,
-            backgroundColor: "red",
-            minBarLength: 200
-        }
-     ]
- },
- options:{
-    title: {
-        display: true,
-        text: "Effected Countries"
-    },
-    scales: {
-        xAxes: [{
-            // type: 'time',
-            // time: {
-            //     displayFormats: {
-            //         quarter: 'MMM YYYY'
-            //     }
-            // },
-            stacked: true
-        }],
-        yAxes: [{
-            stacked: true
-        }]
-    }
- }
-})
-})
-
-    var globalURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true"
-
-     $.ajax({
-         url: globalURL,
-         method: "GET",
-
-     }).then(function(data) {
-      //  console.log(data)
-            
-         var totalConfirmedGlobal = data.latest.confirmed;
-         var totalDeathsGlobal = data.latest.deaths;
-         
-        $('#global-cases').text (totalConfirmedGlobal)
-        $('#global-deaths').text (totalDeathsGlobal)
-     })
-    
-$.ajax({
-    url: 'https://api.covid19api.com/live/country/Nigeria/status/confirmed',
-    dataType: 'json',
-    success: function(data) {
-     // console.log(data[0].Country);
-      //console.log(data.timelineitems['0']);
-    }
-  });
-
-    //var infoURL = "https://covidtracking.com/api/states/info";
-    var countryURL = "http://covidtracking.com/api/us";
-    var stateURL = "https://covidtracking.com/api/states";
-
-
-$.ajax({
-    url: 'https://api.thevirustracker.com/free-api?countryTimeline=US',
-    dataType: 'json',
-    success: function(data) {
-     // console.log(data);
-    // console.log(data.countryitems[0][1].title)
-    }
-  });
-//   $(document).ready(function() {
-//     $("#countries").msDropdown();
-//     })
-// $.ajax({
-//     url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
-//     dataType: 'json',
-//     success: function(data) {
-//       console.log(data);
-//     }
-//   });
-
-
+	return `${date.getDate()} ${monthsNames[date.getMonth()]}`;
+}
