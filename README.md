@@ -3,7 +3,7 @@
 
 ## Description
 
-The world has been plagued with COVID-19.  We created an app that will help track COVID-19 statistics.  The user will be presented with global statistics in an interactive dashboard, tracking the number of cases, deaths, and recoveries – by country, based on the open COVID-19 dataset provide by multiple sources such as Johns Hopkins University.
+Mankind has been plagued by COVID-19 with no end in sight.  We created an app that will help track COVID-19 statistics worldwide.  The user will be presented with global statistics in an interactive dashboard, tracking the number of cases, deaths, and recoveries.  The information is organized by country and based on the open COVID-19 dataset provide by multiple sources such as Johns Hopkins University.  A quick access button is used to quickly see the Top 10 Countries Effected or the user can chose from an array of countries to see the specified data.  
 
 ## Table of Contents (Optional)
 
