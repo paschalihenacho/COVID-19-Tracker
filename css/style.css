@@ -25,8 +25,6 @@
     /* #data-ccountryid{
         align-items: center;
     } */
-    
-    
     #nav-bar {
         background-color: #000000;
         font-size: 40px !important;
@@ -87,8 +85,7 @@
         text-align: center;
         font-size: 60px;
     }
-    
-    
+
     #searchCountry, #input {
         padding: 10px;
     }
@@ -147,6 +144,10 @@
         color: whitesmoke;
         
     }
+
+    .top-ten-cards{
+    background-color: wheat;
+    }
     /* =============GLOBAL SECTION========= */
     .global-stats-card, .top-10, .top-ten{
         margin-top: 20px;
@@ -194,7 +195,7 @@
         background-color: #000000;
         padding-bottom: 80px;
     }
-    .united-states, .meet-the-teamTxt, .top-ten, .global-stats{
+    .united-states, .meet-the-teamTxt, .top-ten, .global-stats, .countries-stats{
     text-align: center;
     padding-top: 10px;
     background-color: #000000;
@@ -215,39 +216,29 @@
         padding: 20px;
         margin: 10px;
     }
-    
-    
+
     #chartCard{
         background-color: whitesmoke;
         width: 90vw;
-        border-radius: 40px;
-       
+        border-radius: 40px; 
     }
-    
-    
+
     .global-container, .country-container, .country-container, .stats-container {
         color: yellow;
         background-color: #404040;
         font-weight: bolder;
         text-align: center;
-    
         display: inline-block;
         text-align: center;
-    
     }
     
     hr{
         background-color: black;
     }
     
-    
-    
-    
-    
     .container {
         display: block;
     }
-    
     
     h4 {
         font-size: 85%;
@@ -261,8 +252,6 @@
          padding-bottom: 5px;
     }
     
-    
-    
     /*--Media Queries */
     
     @media screen and (max-width: 576px) {
@@ -270,8 +259,6 @@
         text-align: center;
         /* padding: 15px; */
     }
-    
-    
     }
     
     @media screen and (min-width: 768px) {
@@ -281,8 +268,7 @@
     }
     
     }
-    /* =============Team Page Begins============= */
-    
+
     #chartCard {
         padding-right: 1px !important;
         border: 1px solid whitesmoke !important;

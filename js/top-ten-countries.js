@@ -1,5 +1,3 @@
-{/* <script type="text/javascript" src="https://embed.thevirustracker.com/embed.js"></script>
-<div class="thevirustracker-widget" data-ccountryid="US" data-base="ALLDATA"></div> */}
 
 ! function() {
     var e;

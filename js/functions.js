@@ -107,21 +107,6 @@ $.ajax({
  })
 })
 
-$(document).ready(function() {
-    $('a[href^="#"]').on('click', function(e) {
-        e.preventDefault();
-
-        var target = this.hash,
-            $target = $(target);
-
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function() {
-            window.location.hash = target;
-        });
-    });
-});
-
 function buildCountryQueryURL() {
  var queryParams = $("#countryInput").val();
 //  var queryParams = 'US'
@@ -295,35 +280,7 @@ method: "GET",
 
 }).then(showCountry);
 })
-// AJAX CALL FOR GLOBAL DATA
-$.ajax({
-url: 'https://api.thevirustracker.com/free-api?global=stats',
-dataType: 'json',
-success: function(data) {
-var total_cases = data.results[0].total_cases;
-var GlobalTotal_recovered = data.results[0].total_recovered;
-var total_unresolved = data.results[0].total_unresolved;
-var GlobalDeaths = data.results[0].total_deaths;
-var total_new_cases_today = data.results[0].total_new_cases_today;
-var total_new_deaths_today = data.results[0].total_new_deaths_today;
-var total_active_cases = data.results[0].total_active_cases;
-var total_serious_cases = data.results[0].total_serious_cases;
-var total_affected_countries = data.results[0].total_affected_countries;
 
-$('#total_cases').text (total_cases)
-$('#GlobalTotal_recovered').text (GlobalTotal_recovered)
-$('#total_unresolved').text (total_unresolved)
-$('#GlobalDeaths').text (GlobalDeaths)
-$('#total_new_cases_today').text (total_new_cases_today)
-$('#total_new_deaths_today').text (total_new_deaths_today)
-$('#total_active_cases').text (total_active_cases)
-$('#total_serious_cases').text (total_serious_cases)
-$('#total_affected_countries').text (total_affected_countries)
-
-}
-});
-
-// GLOBAL CHART DATA
 $.ajax({
 url: 'https://api.covid19api.com/summary',
 dataType: 'json',
@@ -424,6 +381,9 @@ scales: {
 }
 })
 })
+var countryURL = "http://covidtracking.com/api/us";
+var stateURL = "https://covidtracking.com/api/states";
+
 
 var globalURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true"
 

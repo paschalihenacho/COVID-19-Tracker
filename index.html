@@ -16,19 +16,16 @@
   <title>Covid-19 Tracker</title>
 </head>
 <body>
+   <!-- *********************End Reference Links******************** -->
   <nav id="nav-bar" class="navbar text-center">
     <div class="row">
      <a class="navbar-brand col s2 center-align valign-wrapper" href="index.html">
       <img id="icon" src="./images/icon.png" width="200" height="200" alt="covid-virus" class="center" />
      </a>
      <div class="name-title col s10 center-align valign-wrapper">COVID-19 Tracker</div>
+     <h1>Find the latest covid-19 statistics globally</h1>
     </div>
     <div class="row col s12 center-align valign-wrapper">
-     <!-- <form id="searchForm" class="form-inline">
-      <h1 class="search-for-country">Find the latest covid-19 stats globally:</h1>
-      <input name="countryInput" id="countryInput" class="form-control" placeholder="Enter a Country" aria-label="Search" />
-      <a id="search" href="#countryName" class="btn btn-outline-success">Search <span class="material-icons">search</span></a>
-     </form> -->
     </div>
    </nav>
    <a id="top-ten-countries-effected" href="top-ten-countries.html" class="btn btn-outline-success">Top 10 Countries Effected <span class="material-icons">sort</span></a>
@@ -36,11 +33,12 @@
    <a id="united-states-stats-btn" href="usa.html#united-states-stats" class="btn btn-outline-success">United States Stats <span class="material-icons">poll</span></a>
    <hr id="firstHr" />
   <main>
+    <div id="countries-stats" class="countries-stats">Countries Stats</div>
     <div class="stats">
         <div class="latest-report">
             <div class="country">
                 <div class="name">Loading...</div>
-                <div class="change-country">change</div>
+                <div class="change-country text-info">Click to Select a Country</div>
                 <div class="search-country hide">
                     <div class="search-box">
                         <input type="text" id="search-input" placeholder="Search Country...">
@@ -72,19 +70,20 @@
             <canvas id="axes_line_chart"></canvas>
         </div>
         </div>
+        <hr class="divider" />
         <section class="">
           <div id="global-stats" class="global-stats">Global Stats</div>
           <div class="container">
            <div class="row">
-            <div class="global-stats-card col col-md-3">
-             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
+            <div class="Globackground global-stats-card col col-md-3">
+             <ul class="Globackground list-group list-group-flush">
+              <li class="Globackground list-group-item">
                Cases
-               <h1 id="total_cases"></h1>
+               <h1 class="Globackground total-case" id="total_cases"></h1>
               </li>
               <li class="list-group-item">
                Recorvered
-               <h1 id="GlobalTotal_recovered"></h1>
+               <h1 class="Globackground global-recovered" id="GlobalTotal_recovered"></h1>
               </li>
               <li class="list-group-item">
                Unresolved Cases
@@ -97,7 +96,7 @@
               <ul class="list-group list-group-flush">
                <li class="list-group-item">
                 Deaths
-                <h1 id="GlobalDeaths"></h1>
+                <h1 class="text-danger" id="GlobalDeaths"></h1>
                </li>
                <li class="list-group-item">
                 New Cases Today
@@ -138,70 +137,19 @@
              <p class="text-info" id="updated"></p>
             </div>
            </div>
-           <div class="col">
+           <!-- <div class="col">
             <div id="chartCard" class="card">
              <div class="card-body">
               <canvas class="responsive" id="myGlobalChart" height="150"></canvas>
              </div>
             </div>
-           </div>
+           </div> -->
+           <div class="chart">
+            <canvas id="myGlobalChart"></canvas>
+        </div>
           </div>
          </section>
         </section>
-       
-         <hr class="divider" />
-         <section>
-          <div id="countryName" class="name"></div>
-      
-          <div class="row" id="stats ">
-           <div class="container my-5 col-12">
-            <div class="row text-center">
-             <div class="us-stats-header col-3">
-              <h5>Tested</h5>
-              <p class="text-info" id="country-total_TestedResults"></p>
-             </div>
-             <div class="us-stats-header col-3">
-              <h5>Hospitalized</h5>
-              <p class="text-warning" id="country-total_hospitalized"></p>
-             </div>
-             <div class="us-stats-header col-3">
-              <h5>Confirmed</h5>
-              <p class="text-warning" id="country-total_confirmed"></p>
-             </div>
-            </div>
-      
-            <div class="row text-center">
-             <div class="us-stats-header col-3">
-              <h5>On Ventilator</h5>
-              <p class="text-warning" id="country-onVentilator"></p>
-             </div>
-             <div class="text-success col-3">
-              <h5 class="us-stats-header">Recorvered</h5>
-              <p class="text-success" id="country-total_recovered"></p>
-             </div>
-             <div class="us-stats-header col-3">
-              <h5>Deceased</h5>
-              <p class="text-danger" id="country-total_deaths"></p>
-             </div>
-            </div>
-            <div class="text-center">
-             <div class="us-stats-header col-12">
-              <h5>Last Updated</h5>
-              <p class="text-info" id="country-last_updated"></p>
-             </div>
-            </div>
-           </div>
-          </div>
-         </section>
-         <div id="countryChartCard" class="container-fluid">
-          <div class="col">
-           <div id="chartCard" class="card">
-            <div class="card-body">
-             <canvas class="responsive" id="myCountryChart" height="150"></canvas>
-            </div>
-           </div>
-          </div>
-         </div>
          <hr class="divider" />
          <!-- MEET THE TEAM DIV -->
          <hr id="divider" />
@@ -254,7 +202,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
     <script src="js/countries.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
