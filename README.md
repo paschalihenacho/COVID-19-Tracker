@@ -1,8 +1,8 @@
-# PI_KL_MB-COVID-19-Tracker
-# LIVE: https://paschalihenacho.github.io/COVID-19-Tracker/
+## PI_KL_MB-COVID-19-Tracker
+## LIVE: https://paschalihenacho.github.io/COVID-19-Tracker/
 ## Description
 
-In our app, we will be tracking Covid-19 statistics and presenting in a palatable way.  The app will provide a quick access to a countries official numbers to our current outbreak.
+In our app, we will be tracking Covid-19 statistics and presenting our result in an interactive dashboard, tracking the number of cases, deaths, and recoveries – by country, based on the open COVID-19 dataset provide by Johns Hopkins University.
 
 ## Table of Contents (Optional)
 
@@ -25,10 +25,11 @@ Provide instructions and examples for use. Include screenshots as needed.
 
 1. Icon Image by CDC on unsplash.com
 2. https://github.com/ExpDev07/coronavirus-tracker-api
-3.  https://apify.com/covid-19 
+3. https://apify.com/covid-19 
 4. https://codingshiksha.com
 5. chart.js
-
+6. https://thevirustracker.com
+7. https://www.geoplugin.com/webservices/javascript
 
 ## License
 
