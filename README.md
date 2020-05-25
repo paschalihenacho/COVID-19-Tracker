@@ -1,5 +1,6 @@
-## PI_KL_MB-COVID-19-Tracker
-## LIVE: https://paschalihenacho.github.io/COVID-19-Tracker/
+## COVID-19 Tracker
+## LIVE: 
+https://paschalihenacho.github.io/COVID-19-Tracker/
 ## Description
 
 In our app, we will be tracking Covid-19 statistics and presenting our result in an interactive dashboard, tracking the number of cases, deaths, and recoveries – by country, based on the open COVID-19 dataset provide by Johns Hopkins University.
