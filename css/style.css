@@ -146,15 +146,22 @@
     }
 
     .top-ten-cards{
-    background-color: wheat;
+    background-color: whitesmoke;
     }
     /* =============GLOBAL SECTION========= */
-    .global-stats-card, .top-10, .top-ten{
+    .global-stats-card {
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    .list-group-item{
+
+    .top-10, .top-ten {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .list-group-item {
+        background-color: black;
         text-align: center;
+        color: white;
     }
     /* =============GLOBAL SECTION========= */
     #dashboard {
