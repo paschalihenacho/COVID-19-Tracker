@@ -220,11 +220,11 @@ $.ajax({
         countryitems.forEach(title => {
             let DATA = data[title];
     
-           // formatedDates.push(formatedDates(date));
-           title.push(DATA);
-           TotalConfirmed.push(parseInt(DATA.TotalConfirmed));
-           TotalRecovered.push(parseInt(DATA.TotalRecovered));
-           TotalDeaths.push(parseInt(DATA.TotalDeaths));
+           // formatedDates.push(formatedDates(d  ate));
+        //    title.push(DATA
+        //    TotalConfirmed.push(parseInt(DATA.TotalConfirmed));
+        //    TotalRecovered.push(parseInt(DATA.TotalRecovered));
+        //    TotalDeaths.push(parseInt(DATA.TotalDeaths));
     
         })
        // console.log(data.countryitems[0])
