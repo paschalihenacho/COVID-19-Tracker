@@ -25,14 +25,20 @@
       <div class="name-title col s10 center-align valign-wrapper">COVID-19 Tracker</div>
     </div>
     <div class="row col s12 center-align valign-wrapper">
-      <h1>Find the latest covid-19 statistics globally</h1>
+      <form id="searchForm" class="form-inline">
+        <h1 class="search-for-country">Find the latest covid-19 stats globally:</h1>
+        <input name="countryInput" id="countryInput" class="form-control"  placeholder="Enter a Country" aria-label="Search">
+        <a  id="search"   class=" btn btn-outline-success">Search <span class="material-icons">search</span></a>
+        <!-- <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      </form>
+
     </div>
 </nav>
-  <a id="homebtn" href="index.html" class=" btn btn-outline-success">Home <span class="material-icons">home</span></a>
-  <a id="top-ten-countries-effected" href="top-ten-countries.html" class=" btn btn-outline-success">Top 10 Countries Effected <span class="material-icons">sort</span></a>
-  <a id="meet-the-team-btn" href="index.html#meet-the-team" class="btn btn-outline-success">Meet The Team <span class="material-icons">group</span></a>
-  <a id="test-btn" href="test.html" class="btn btn-outline-success">Test <span class="material-icons">poll</span></a>
-  <hr id="firstHr" />
+    <a id="homebtn" href="index.html" class=" btn btn-outline-success">Home <span class="material-icons">home</span></a>
+    <a id="top-ten-countries-effected" href="top-ten-countries.html" class="btn btn-outline-success">Top 10 Countries Effected <span class="material-icons">sort</span></a>
+    <a id="united-states-stats-btn" href="usa.html#united-states-stats" class="btn btn-outline-success">United States Stats <span class="material-icons">poll</span></a>
+    <a id="meet-the-team-btn" href="#meet-the-team" class="btn btn-outline-success">Meet The Team <span class="material-icons">group</span></a>
+    <hr id="firstHr">
 <main class=" container-lg">
 
   <section id="dashboard">
@@ -87,58 +93,7 @@
     </div>
   </section>
 
- <section>    
-        <div id="united-states-stats" class="united-states">United States Stats</div>
-    
-      <div class="row" id="stats">
-        <div class="container my-5">
-          <div class="row text-center">            
-            <div class="us-stats-header col-3">
-              <h5>Tested</h5>
-              <p class="text-info" id="total_TestedResults"></p>
-            </div>
-            <div class="us-stats-header col-3">
-              <h5>Hospitalized</h5>
-              <p class="text-warning" id="total_hospitalized"></p>
-            </div>
-            <div class="us-stats-header col-3 ">
-              <h5>Confirmed</h5>
-              <p class="text-warning" id="total_confirmed"></p>
-            </div>
-          </div>
-
-          <div class="row text-center "> 
-            <div class="us-stats-header col-3">
-            <h5>On Ventilator</h5>
-            <p class="text-warning" id="onVentilator"></p>
-          </div>           
-            <div class="text-success col-3">
-              <h5 class="us-stats-header" >Recorvered</h5>
-              <p class="text-success" id="total_recovered"></p>
-            </div>
-            <div class="us-stats-header col-3">
-              <h5>Deceased</h5>
-              <p class="text-danger" id="total_deaths"></p>
-            </div>
-          </div>
-          <div class="text-center">            
-            <div class="us-stats-header col-12">
-              <h5>Last Updated</h5>
-              <p class="text-info" id="last_updated"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class=" container-fluid">
-      <div class="col">
-        <div id="chartCard" class="card">
-              <div class="card-body">
-                  <canvas class="responsive" id="myChart" height="150"></canvas>
-              </div>
-          </div>
-      </div>
-    </div>
+ 
 </main>
 
     <footer >

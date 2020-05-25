@@ -30,6 +30,7 @@ Provide instructions and examples for use. Include screenshots as needed.
 5. chart.js
 6. https://thevirustracker.com
 7. https://www.geoplugin.com/webservices/javascript
+8. https://www.youtube.com/channel/UC8n8ftV94ZU_DJLOLtrpORA
 
 ## License
 
