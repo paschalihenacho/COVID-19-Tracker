@@ -1,382 +1,644 @@
 /*--Overall Styling */
     /* background-color: #575aad; */
-.test{
-    height: 600;
-}
-#nav-btn{
-    position: sticky;
-}
-#firstHr{
-    border: 1px solid thistle;
-    width: 100vw !important;
-}
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans', sans-serif;
-}
- body {
-    font-size: 16px;
-    line-height: 1;
+    .test{
+        height: 600;
+    }
+    #nav-btn{
+        position: sticky;
+    }
+    #firstHr{
+        border: 1px solid thistle;
+        width: 100vw !important;
+    }
+    * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Open Sans', sans-serif;
+    }
+     body {
+        font-size: 16px;
+        line-height: 1;
+        background-color: #000000;
+        overflow: auto;
+    } 
+    /* #data-ccountryid{
+        align-items: center;
+    } */
+    
+    
+    #nav-bar {
+        background-color: #000000;
+        font-size: 40px !important;
+        font-weight: bolder;
+        height: auto;
+        color: thistle;
+    }
+    .btn-outline-success:hover{
+        background-color: thistle;
+        color: #000000 !important;
+    }
+    #meet-the-team-btn:hover{
+        background-color: thistle;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+    }
+    #homebtn:hover{
+        background-color: thistle;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+    }
+    #search:hover{
+        background-color: thistle;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+    }
+    #united-states-stats-btn:hover{
+        background-color: thistle;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+    }
+    #top-ten-countries-effected:hover{
+        background-color: thistle;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+    }
+    .btn{
+        margin: 10px;
+        border-radius: 15px;
+        border: 1px solid thistle !important;
+    }
+    #meet-the-team-btn, #top-ten-countries-effected, #search, #united-states-stats-btn, #homebtn{
+        margin: 10px;
+        border-radius: 15px;
+        border: 1px solid thistle !important;
+        color: thistle !important;
+    }
+    .hire-me{
+        margin: 10px;
+        height: 50px !important;
+        border-radius: 15px;
+        border: 1px solid thistle !important;
+        color: thistle !important; 
+        background-color: #000000 ;
+    }
+    
+    .name-title{
+        text-align: center;
+        font-size: 60px;
+    }
+    
+    
+    #searchCountry, #input {
+        padding: 10px;
+    }
+    #searchForm{
+        text-align: center;
+    }
+    #search{
+        color: thistle;
+        font-weight: bolder;
+    }
+    
+    #input {
+        width: auto;
+    }
+    
+    #error{
+        color: red;
+    }
+    .fas {
+        color: white;
+    }
+    
+    h1 {
+        font: outline;
+        font-size: 20px;
+        padding: 20px;
+    }
+    .title, .subtitle {
+        text-align: center;
+    }
+    
+    
+    #country-title, .top-10, #global-title{
+        text-align: center;
+        font-size: 30px;
+        font-weight: bolder;
+        color: whitesmoke;
+        border-radius: 2px solid whitesmoke;
+        background-color: transparent;
+    
+    }
+    .country-container, .global-container {
+        min-width: 60px;
+        text-align: center;
+        border-radius: 40px;
+        min-height: 60px;
+        width: auto;
+    }
+    #countryInput{
+        min-width: 300px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+        padding: 5px;
+        text-align: center;
+        color: whitesmoke;
+        
+    }
+    /* =============GLOBAL SECTION========= */
+    .global-stats-card, .top-10, .top-ten{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .list-group-item{
+        text-align: center;
+    }
+    /* =============GLOBAL SECTION========= */
+    #dashboard {
+        /* background-color: #404040 */
+        background-color: #000000;
+    }
+    
+    #stats {
+        background-color: #000000;
+    }
+    
+    #cardDiv {
+        margin: 15px;
+        align-items: center;
+        position: relative;
+    }
+    .card-title{
+        border-bottom: 2px solid;
+        padding: 20px;
+        color: #000000;
+    }
+    .card-subtitle{
+        color: black;
+        padding: 10px;
+    }
+    .parentheses{
+        font-style: italic;
+        font-size: smaller;
+        color: wheat;
+    }
+    #message{
+        background-color: darkgoldenrod;
+        color: white;
+        padding: 7px;
+        border-radius: 10px;
+    }
+    main {
+        background-color: #000000;
+        padding-bottom: 80px;
+    }
+    .united-states, .meet-the-teamTxt, .top-ten, .global-stats{
+    text-align: center;
+    padding-top: 10px;
     background-color: #000000;
-    overflow: auto;
-} 
-/* #data-ccountryid{
-    align-items: center;
-} */
-
-
-#nav-bar {
-    background-color: #000000;
-    font-size: 40px !important;
-    font-weight: bolder;
-    height: auto;
-    color: thistle;
-}
-.btn-outline-success:hover{
-    background-color: thistle;
-    color: #000000 !important;
-}
-#meet-the-team-btn:hover{
-    background-color: thistle;
-    color: #000000 !important;
-    border: 1px solid #000000 !important;
-}
-#homebtn:hover{
-    background-color: thistle;
-    color: #000000 !important;
-    border: 1px solid #000000 !important;
-}
-#search:hover{
-    background-color: thistle;
-    color: #000000 !important;
-    border: 1px solid #000000 !important;
-}
-#united-states-stats-btn:hover{
-    background-color: thistle;
-    color: #000000 !important;
-    border: 1px solid #000000 !important;
-}
-#top-ten-countries-effected:hover{
-    background-color: thistle;
-    color: #000000 !important;
-    border: 1px solid #000000 !important;
-}
-.btn{
-    margin: 10px;
-    border-radius: 15px;
-    border: 1px solid thistle !important;
-}
-#meet-the-team-btn, #top-ten-countries-effected, #search, #united-states-stats-btn, #homebtn{
-    margin: 10px;
-    border-radius: 15px;
-    border: 1px solid thistle !important;
-    color: thistle !important;
-}
-.hire-me{
-    margin: 10px;
-    height: 50px !important;
-    border-radius: 15px;
-    border: 1px solid thistle !important;
-    color: thistle !important; 
-    background-color: #000000 ;
-}
-
-.name-title{
-    text-align: center;
-    font-size: 60px;
-}
-
-
-#searchCountry, #input {
-    padding: 10px;
-}
-#searchForm{
-    text-align: center;
-}
-#search{
-    color: thistle;
-    font-weight: bolder;
-}
-
-#input {
-    width: auto;
-}
-
-#error{
-    color: red;
-}
-.fas {
-    color: white;
-}
-
-h1 {
-    font: outline;
-    font-size: 20px;
-    padding: 20px;
-}
-.title, .subtitle {
-    text-align: center;
-}
-
-
-#country-title, .top-10, #global-title{
-    text-align: center;
+    color: #ECE8FF;
     font-size: 30px;
     font-weight: bolder;
-    color: whitesmoke;
-    border-radius: 2px solid whitesmoke;
-    background-color: transparent;
+    }
+    
+    .us-stats-header{
+        color: white;
+    }
+    #total_TestedResults, #total_hospitalized, #total_confirmed, #onVentilator,  #total_recovered, #total_deaths{
+        font-size: x-large;
+        font-weight: bolder;
+        padding: 5px;
+    }
+    h5, #total_TestedResults, #total_hospitalized, #total_confirmed, #onVentilator,  #total_recovered, #total_deaths {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    
+    #chartCard{
+        background-color: whitesmoke;
+        width: 90vw;
+        border-radius: 40px;
+       
+    }
+    
+    
+    .global-container, .country-container, .country-container, .stats-container {
+        color: yellow;
+        background-color: #404040;
+        font-weight: bolder;
+        text-align: center;
+    
+        display: inline-block;
+        text-align: center;
+    
+    }
+    
+    hr{
+        background-color: black;
+    }
+    
+    
+    
+    
+    
+    .container {
+        display: block;
+    }
+    
+    
+    h4 {
+        font-size: 85%;
+         color: whitesmoke;
+         font-family: 'Roboto', sans-serif;
+         font-weight: 300;
+         text-align: center;
+         padding-top: 20px;
+         padding-left: 20px;
+         padding-right: 20px;
+         padding-bottom: 5px;
+    }
+    
+    
+    
+    /*--Media Queries */
+    
+    @media screen and (max-width: 576px) {
+        .navbar-brand {
+        text-align: center;
+        /* padding: 15px; */
+    }
+    
+    
+    }
+    
+    @media screen and (min-width: 768px) {
+        .navbar-brand { 
+        text-align: center;
+        /* padding: 15px; */
+    }
+    
+    }
+    /* =============Team Page Begins============= */
+    
+    #chartCard {
+        padding-right: 1px !important;
+        border: 1px solid whitesmoke !important;
+        margin: 10px !important;
+        border-radius: 30px;
+        background-color: thistle;
+        display: block;
+    }
+    .divider{
+        margin-top: 40px;
+        border: 1px solid thistle;
+        width: 100vw !important;
+    }
+    .meet-the-team{
+        /* padding-right: 1px !important; */
+        border: 1px solid whitesmoke !important;
+        margin: 10px !important;
+        background-color: thistle;
+    
+    }
+    .card-body{
+        padding: 0;
+    }
+    .card-image{
+        max-width: 200px;
+    }
+    #nav-bar {
+        background-color: #000000 !important;
+        border-style: solid;
+        border: 2px solid thistle !important;
+        /* border-radius: 40px !important; */
+        text-align: center;
+    }
+    
+    .myGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+    @media (max-width: 768px) {
+        .myGrid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 10px
+        }
+        .mySubGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            grid-gap: 15px
+        }
+    }
+    @media (max-width: 576px) {
+        .myGrid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(2, auto);
+        }
+        .mySubGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            grid-gap: 15px
+        }
+    }
+    /* =============Team Page Ends============= */
+    
+    #menu{
+        background-color: #000000;
+    }
+    .thevirustracker{
+        background-color: thistle;
+        max-width: 200px;
+        position: sticky;
+    }
+    .top-10{
+        display: inline-block;
+        margin: 20px;
+    
+    }
+/* ---------------------------------------------- */
+/*                    FOOTER                      */
+/* ---------------------------------------------- */
+    
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        padding-bottom: 10px;
+        background-color: #000000;
+        padding-top: 10px;
+        font-size: 12px;
+        align-items: center;
+      }
+    
+      
 
+
+
+
+/* ---------------------------------------------- */
+/*            CODE EXPLAINED TUTORIALS            */
+/*         www.youtube.com/CodeExplained          */
+/* ---------------------------------------------- */
+
+/* ---------------------------------------------- */
+/*                  LOAD FONTS                    */
+/* ---------------------------------------------- */
+@font-face{
+    font-family: 'Gilroy';
+    src: url(./Gilroy-Regular.woff) format(woff);
 }
-.country-container, .global-container {
-    min-width: 60px;
-    text-align: center;
-    border-radius: 40px;
-    min-height: 60px;
-    width: auto;
+/* ---------------------------------------------- */
+/*                    GENERAL                     */
+/* ---------------------------------------------- */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy', sans-serif;
 }
-#countryInput{
-    min-width: 300px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    padding: 5px;
-    text-align: center;
-    color: whitesmoke;
+html{
+    font-size: 16px;
+}
+.hide{
+    display: none;
+}
+.fadeIn{
+    animation: fade 0.5s ease-in-out;
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* ---------------------------------------------- */
+/*                    HEADER                      */
+/* ---------------------------------------------- */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+
+    margin: 0 auto;
+
+    background-color: #F3F2F2;
+}
+/* -------- LOGO -------- */
+.logo{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.logo img{
+    width: 60px;
+}
+.logo p {
+    font-weight: bold;
+    color: #6a149b;
+}
+/* -------- NAV -------- */
+nav{
     
 }
-/* =============GLOBAL SECTION========= */
-.global-stats-card, .top-10, .top-ten{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.list-group-item{
-    text-align: center;
-}
-/* =============GLOBAL SECTION========= */
-#dashboard {
-    /* background-color: #404040 */
-    background-color: #000000;
-}
 
-#stats {
-    background-color: #000000;
-}
-
-#cardDiv {
-    margin: 15px;
+nav ul{
+    display: flex;
     align-items: center;
-    position: relative;
 }
-.card-title{
-    border-bottom: 2px solid;
-    padding: 20px;
-    color: #000000;
+nav ul li{
+    list-style: none;
 }
-.card-subtitle{
-    color: black;
+nav ul li:last-child{
+    padding-right: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #6a149b;
     padding: 10px;
 }
-.parentheses{
-    font-style: italic;
-    font-size: smaller;
-    color: wheat;
+/* ---------------------------------------------- */
+/*                      MAIN                      */
+/* ---------------------------------------------- */
+main{
+    max-width: 1200px;
+    margin: 0 auto;
 }
-#message{
-    background-color: darkgoldenrod;
-    color: white;
-    padding: 7px;
-    border-radius: 10px;
-}
-main {
-    background-color: #000000;
-    padding-bottom: 80px;
-}
-.united-states, .meet-the-teamTxt, .top-ten, .global-stats{
-text-align: center;
-padding-top: 10px;
-background-color: #000000;
-color: #ECE8FF;
-font-size: 30px;
-font-weight: bolder;
-}
-
-.us-stats-header{
-    color: white;
-}
-#total_TestedResults, #total_hospitalized, #total_confirmed, #onVentilator,  #total_recovered, #total_deaths{
-    font-size: x-large;
-    font-weight: bolder;
-    padding: 5px;
-}
-h5, #total_TestedResults, #total_hospitalized, #total_confirmed, #onVentilator,  #total_recovered, #total_deaths {
-    padding: 20px;
-    margin: 10px;
-}
-
-
-#chartCard{
-    background-color: whitesmoke;
-    width: 90vw;
-    border-radius: 40px;
-   
-}
-
-
-.global-container, .country-container, .country-container, .stats-container {
-    color: yellow;
-    background-color: #404040;
-    font-weight: bolder;
-    text-align: center;
-
-    display: inline-block;
-    text-align: center;
-
-}
-
-hr{
-    background-color: black;
-}
-
-
-
-
-
-.container {
-    display: block;
-}
-
-
-h4 {
-	font-size: 85%;
- 	color: whitesmoke;
- 	font-family: 'Roboto', sans-serif;
- 	font-weight: 300;
- 	text-align: center;
- 	padding-top: 20px;
- 	padding-left: 20px;
- 	padding-right: 20px;
- 	padding-bottom: 5px;
-}
-
-
-
-/*--Media Queries */
-
-@media screen and (max-width: 576px) {
-    .navbar-brand {
-    text-align: center;
-    /* padding: 15px; */
-}
-
-
-}
-
-@media screen and (min-width: 768px) {
-    .navbar-brand { 
-    text-align: center;
-    /* padding: 15px; */
-}
-
-}
-/* =============Team Page Begins============= */
-
-#chartCard {
-    padding-right: 1px !important;
-    border: 1px solid whitesmoke !important;
-    margin: 10px !important;
-    border-radius: 30px;
-    background-color: thistle;
-    display: block;
-}
-.divider{
-    margin-top: 40px;
-    border: 1px solid thistle;
-    width: 100vw !important;
-}
-.meet-the-team{
-    /* padding-right: 1px !important; */
-    border: 1px solid whitesmoke !important;
-    margin: 10px !important;
-    background-color: thistle;
-
-}
-.card-body{
-    padding: 0;
-}
-.card-image{
-    max-width: 200px;
-}
-#nav-bar {
-    background-color: #000000 !important;
-    border-style: solid;
-    border: 2px solid thistle !important;
-    /* border-radius: 40px !important; */
-    text-align: center;
-}
-
-.myGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-}
-@media (max-width: 768px) {
-    .myGrid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-gap: 10px
-    }
-    .mySubGrid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(1, 1fr);
-        grid-gap: 15px
-    }
-}
-@media (max-width: 576px) {
-    .myGrid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(2, auto);
-    }
-    .mySubGrid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(1, 1fr);
-        grid-gap: 15px
-    }
-}
-/* =============Team Page Ends============= */
-
-#menu{
-    background-color: #000000;
-}
-.thevirustracker{
-    background-color: thistle;
-    max-width: 200px;
-    position: sticky;
-}
-.top-10{
-    display: inline-block;
-    margin: 20px;
-
-}
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+/* -------- BG IMAGE -------- */
+.stats{
     width: 100%;
-    color: white;
-    text-align: center;
-    padding-bottom: 10px;
-    background-color: #000000;
-    padding-top: 10px;
-    font-size: 12px;
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) ,url('../img/bg.jpg');
+    background-size: cover;
+}
+/* -------- LATEST REPORT -------- */
+.latest-report{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+    color: #FFF;
+}
+
+.country,
+.total-cases,
+.recovered,
+.deaths{
+    height: 100px;
+}
+
+.name{
+    font-size: 2.2em;
+    color: #be64f1;
+    font-weight: bold;
+}
+
+.change-country{
+    cursor: pointer;
+}
+
+.title{
+    font-size: 1.3em;
+}
+.total-cases .value{
+    font-size: 2em;
+    font-weight: bold;
+}
+.recovered .value{
+    font-size: 2em;
+    font-weight: bold;
+    color: #009688;
+}
+.deaths .value{
+    font-size: 2em;
+    font-weight: bold;
+    color: #f44336;
+}
+.new-value{
+    font-size: 1.3em;
+}
+/* -------- CHART -------- */
+.chart{
+    width: 80%;
+    height: 70vh;
+    min-height: 500px;
+
+    margin: 0 auto;
+    padding: 50px 0;
+}
+/* -------- SEARCH COUNTRY -------- */
+.search-country{
+    position: relative;
+    top: 10px;
+}
+.search-box{
+    position: absolute;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 400px;
+    height: 30px;
+
+    background-color: #111;
+
+    z-index: 1;
+}
+.search-box input{
+    width: 360px;
+    height: 25px;
+
+    border: none;
+
+    background-color: transparent;
+    color: #FFF;
+
+    padding-left: 15px;
+
+    font-size: 1.1em;
+}
+.search-box img{
+    width: 20px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.country-list{
+    display: flex;
+
+    position: absolute;
+    top: 30px;
+
+    width: 400px;
+    height: 300px;
+
+    background-color: #111;
+    opacity: 0.9;
+
+    overflow-y: scroll;
+}
+
+.country-list ul{
+    width: 100%;
+}
+
+.country-list ul li{
+    list-style: none;
+    cursor: pointer;
+    padding: 10px;
+    color: #FFF;
+}
+.country-list ul li:hover{
+    border-left: 1px solid #FFF;
+}
+/* SCROLL BAR */
+.country-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .country-list::-webkit-scrollbar-track {
+    background: #111;
+  }
+  
+  /* Handle */
+  .country-list::-webkit-scrollbar-thumb {
+    background: #F1F1F1;
+  }
+  
+  /* Handle on hover */
+  .country-list::-webkit-scrollbar-thumb:hover {
+    background: #FFF;
   }
 
-  
+/* ---------------------------------------------- */
+/*             SCREEN WIDTH < 600px               */
+/* ---------------------------------------------- */
+@media screen and (max-width: 600px){
+    .latest-report{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
