@@ -212,7 +212,7 @@ const chang_country_btn = document.querySelector(".change-country");
 const close_list_btn = document.querySelector(".close");
 const input = document.getElementById('search-input')
 
-// CREATE THE COUNTRY LIST
+// CREATE TE COUNTRY LIST
 function createCountryList(){
     const num_countries = country_list.length;
 
