@@ -1,5 +1,6 @@
 // Smooth scroll with animation
 $(document).ready(function() {
+
     $('a[href^="#"]').on('click', function(e) {
         e.preventDefault();
 
