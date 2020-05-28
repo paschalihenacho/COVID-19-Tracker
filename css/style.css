@@ -103,21 +103,6 @@
         border: 1px solid #000000 !important;
     }
 
-
-    .hire-me{
-        margin: 10px;
-        height: 50px !important;
-        border-radius: 15px;
-        border: 1px solid thistle !important;
-        color: thistle !important; 
-        background-color: #000000 ;
-    }
-    
-    .name-title{
-        text-align: center;
-        font-size: 60px;
-    }
-
     #searchCountry, #input {
         padding: 10px;
     }
@@ -147,6 +132,7 @@
     }
     .title, .subtitle {
         text-align: center;
+        margin: 20px;
     }
     
     
@@ -203,6 +189,7 @@
     
     #stats {
         background-color: #000000;
+        /* height: 40vh; */
     }
     
     #cardDiv {
@@ -210,27 +197,8 @@
         align-items: center;
         position: relative;
     }
-    .card-title{
-        border-bottom: 2px solid;
-        padding: 20px;
-        color: #000000;
-        font-size: 30px;
-    }
-    .card-subtitle{
-        color: black;
-        padding: 10px;
-    }
-    .parentheses{
-        font-style: italic;
-        font-size: smaller;
-        color: wheat;
-    }
-    #message{
-        background-color: darkgoldenrod;
-        color: white;
-        padding: 7px;
-        border-radius: 10px;
-    }
+    
+
     main {
         background-color: #000000;
         padding-bottom: 80px;
@@ -242,6 +210,10 @@
     color: #ECE8FF;
     font-size: 30px;
     font-weight: bolder;
+    border-radius: 40px;
+    }
+    .hire-me-body{
+        background-color: #000000;
     }
     
     .us-stats-header{
@@ -259,7 +231,6 @@
 
     #chartCard{
         background-color: whitesmoke;
-        width: 90vw;
         border-radius: 40px; 
     }
 
@@ -327,6 +298,9 @@
         border: 1px solid whitesmoke !important;
         margin: 10px !important;
         background-color: thistle;
+        width: 230px;
+        height: 340px;
+        align-items: center;
     
     }
     .card-body{
@@ -335,6 +309,69 @@
     .card-image{
         max-width: 200px;
     }
+
+    .card-title{
+        border-bottom: 1px solid;
+        padding: 20px;
+        color: #ECE8FF;
+        font-size: 20px;
+        font-weight: bolder;
+        text-align: center;
+    }
+    .card-subtitle{
+        color: whitesmoke;
+        padding: 10px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .referencesImag{
+        width: 150px !important;
+        height: 150px !important;
+        margin-top: 20px;
+    }
+    .hire-me{
+        margin: 10px;
+        height: 40px !important;
+        border-radius: 15px;
+        border: 1px solid thistle !important;
+        color: thistle !important; 
+        background-color: #000000;
+    }
+    .social{
+        font-size: large;
+    }
+    .fa-facebook {
+        color: #3b5998;
+      }
+      
+      .fa-youtube {
+        color: #bb0000;
+      }
+      
+      .fa-google-plus {
+        color: #dd4b39;
+      }
+      
+      .fa-twitter {
+        color: #00aced;
+      }
+      
+      .fa-linkedin {
+        color: #0077b5;
+      }
+      
+      .fa-facebook:hover,
+      .fa-twitter:hover,
+      .fa-google-plus:hover,
+      .fa-youtube:hover,
+      .fa-linkedin:hover {
+        color: thistle;
+      }
+    .name-title{
+        text-align: center;
+        font-size: 60px;
+    }
+
     #nav-bar {
         background-color: #000000 !important;
         border-style: solid;
@@ -510,7 +547,7 @@ main{
 /* -------- BG IMAGE -------- */
 .stats{
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) ,url('../img/bg.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) ,url('../images/covid19_jh.png');
     background-size: cover;
 }
 /* -------- LATEST REPORT -------- */
@@ -525,7 +562,17 @@ main{
 
     color: #FFF;
 }
-
+.country-title{
+    text-align: center;
+    color: #FFF;
+    background-color: #A3262C;
+    margin-left: 320px;
+    margin-right: 320px;
+    margin-top: 20px;
+    border-radius: 40px;
+    font-weight: bolder;
+    font-size: xx-large;
+}
 .country,
 .total-cases,
 .recovered,
@@ -533,11 +580,7 @@ main{
     height: 100px;
 }
 
-.name{
-    font-size: 2.2em;
-    color: #be64f1;
-    font-weight: bold;
-}
+
 
 .change-country{
     cursor: pointer;
