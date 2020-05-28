@@ -16,7 +16,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-
+// function that builds the query url
     function buildQueryURL() {
        // if(queryParams != '') {
         // queryURL is the url we'll use to query the API
@@ -34,7 +34,7 @@ $(document).ready(function() {
     //               $("#error").html('Field cannot be empty');
     //         }
       }
-    
+
     // This function appends searched country to the countryCard
     function showCountry(data) {
     
