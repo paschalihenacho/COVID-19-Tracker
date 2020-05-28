@@ -46,6 +46,18 @@
         color: #000000 !important;
         border: 1px solid #000000 !important;
     }
+
+    #homebtn:active{
+        background-color: red;
+        border: 1px solid #000000 !important;
+
+    }
+
+    #homebtn.current{
+        background-color: red;
+        border: 1px solid #000000 !important;
+
+    }
     #search:hover{
         background-color: thistle;
         color: #000000 !important;
