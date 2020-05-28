@@ -38,58 +38,42 @@
   <hr id="firstHr" />
 <main class=" container-lg">
 
- <section>    
-        <div  id="united-states-stats" class="united-states stats">United States Stats</div>
-    
-      <div class="row" id="stats">
-        <div class="container my-5">
-          <div class="row text-center">            
-            <div class="us-stats-header col-3">
-              <h5>Tested</h5>
-              <p class="text-info" id="total_TestedResults"></p>
-            </div>
-            <div class="us-stats-header col-3">
-              <h5>Hospitalized</h5>
-              <p class="text-warning" id="total_hospitalized"></p>
-            </div>
-            <div class="us-stats-header col-3 ">
-              <h5>Confirmed</h5>
-              <p class="text-warning" id="total_confirmed"></p>
-            </div>
+ <section> 
+  <div id="countries-stats" class="countries-stats">United States Stats</div>
+  <div class="stats">
+      <div class="latest-report">
+        <div class="total-cases">
+          <div class="title">Active Cases</div>
+          <div class="text-info value" id="active-casesUSA">0</div>
+      </div>
+          <div class="total-cases">
+              <div class="title">Total Cases</div>
+              <div class="text-warning value" id="total-casesUSA">0</div>
+              <div id="new-casesUSA" class="new-value">+0</div>
           </div>
-
-          <div class="row text-center "> 
-            <div class="us-stats-header col-3">
-            <h5>On Ventilator</h5>
-            <p class="text-warning" id="onVentilator"></p>
-          </div>           
-            <div class="text-success col-3">
-              <h5 class="us-stats-header" >Recorvered</h5>
-              <p class="text-success" id="total_recovered"></p>
-            </div>
-            <div class="us-stats-header col-3">
-              <h5>Deceased</h5>
-              <p class="text-danger" id="total_deaths"></p>
-            </div>
+          <div class="recovered">
+              <div class="title">Recovered</div>
+              <div class="text-success value" id="total-recoveredUSA">0</div>
           </div>
-          <div class="text-center">            
-            <div class="us-stats-header col-12">
-              <h5>Last Updated</h5>
-              <p class="text-info" id="last_updated"></p>
-            </div>
+          <div class="deaths">
+              <div class="title">Deaths</div>
+              <div class="text-danger value" id="deathsUSA">0</div>
+              <div id="new-deathsUSA" class="new-value">+0</div>
           </div>
+          <div class="total-cases">
+            <div class="title">Death %</div>
+            <div class="text-info value" id="percentUSA">0</div>
         </div>
       </div>
-    </section>
-    <div class=" container-fluid">
-      <div class="col">
-        <div id="chartCard" class="card">
-              <div class="card-body">
-                  <canvas class="responsive" id="myChart" height="150"></canvas>
-              </div>
-          </div>
+      <div class="text-center">
+        <h5 class="title">Last Updated</h5>
+        <p class="text-info" id="last-updatedUSA">last updated</p>
       </div>
+      <div class="chart">
+        <canvas id="usaChart"></canvas>
     </div>
+      </div>
+    </section>
 </main>
 
     <footer >
@@ -102,6 +86,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
     <script src="js/countries.js"></script>
     <script src="js/script.js"></script>
     <script src="js/functions.js"></script>

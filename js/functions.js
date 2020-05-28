@@ -1,33 +1,33 @@
 //============Begin Country Stats (United States)===================//
-var countryURL = "http://covidtracking.com/api/us";
+var countryURL = "https://covid-19.dataflowkit.com/v1/usa";
 $.ajax({
     url: countryURL,
     method: "GET",
    
-   }).then(function(countryURL) {
+   }).then(function(data) {
        
-   var total_TestedResults, total_hospitalized, total_confirmed, onVentilator, total_recovered, total_deaths, last_updated;
- 
-   total_TestedResults = countryURL[0].totalTestResults;
-   total_hospitalized = countryURL[0].hospitalized;
-   total_confirmed = countryURL[0].positive;
-   onVentilator = countryURL[0].onVentilatorCurrently;
-   total_recovered = countryURL[0].recovered;
-   total_deaths = countryURL[0].death;
-   last_updated =  (moment(countryURL[0].lastModified).format('LLLL'));
-//    var dateFormat = require('dateformat');
-//     last_updated = new Date(countryURL[0].lastModified);
-//    dateFormat(last_updated, "dddd, mmmm dS, yyyy, h:MM:ss TT");
-
-  
- 
-    $("#total_TestedResults").append(total_TestedResults);
-    $("#total_hospitalized").append(total_hospitalized);
-    $("#total_confirmed").append(total_confirmed);
-    $("#onVentilator").append(onVentilator);
-    $("#total_recovered").append(total_recovered);
-    $("#total_deaths").append(total_deaths);
-    $("#last_updated").append(last_updated);
+       var activeCasesUSA = data["Active Cases_text"]; 
+       var newCasesUSA = data["New Cases_text"];
+       var newDeathsUSA = data["New Deaths_text"];
+       var totalCasesUSA = data["Total Cases_text"];
+       var totalDeathsUSA = data["Total Deaths_text"];
+       var totalRecorveredUSA = data["Total Recovered_text"];
+       var lastUpadedUSA = (moment(data["Last Update"]).format('LL'));
+       console.log(data["Last Update"])
+       var percentageOfCountryDeathUSA = ((parseInt(totalDeathsUSA)) / (parseInt(totalCasesUSA))
+       *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
+   
+           // appending data to UI
+   
+        $('#deathsUSA').text (totalDeathsUSA); //
+        $('#active-casesUSA').text (activeCasesUSA); //
+        $('#new-casesUSA').text (newCasesUSA); 
+        $('#new-deathsUSA').text (newDeathsUSA);
+        $('#percentUSA').text (percentageOfCountryDeathUSA);
+        $('#total-recoveredUSA').text (totalRecorveredUSA);
+        $('#total-casesUSA').text (totalCasesUSA);
+        $('#last-updatedUSA').text (lastUpadedUSA);
+        $('#countryUSA').text (newCountryNameUSA);
 })
 //============End Country Stats (United States)===================//
 
@@ -63,7 +63,7 @@ $.ajax({
     // $("#deceased").append(total_deaths);
     
     
- var myChart = document.getElementById('myChart').getContext('2d');
+ var myChart = document.getElementById('usaChart').getContext('2d');
  
    var chart = new Chart(myChart, {
      type: 'bar',
