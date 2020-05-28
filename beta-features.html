@@ -23,54 +23,51 @@
                     <img id="icon" src="./images/icon.png" width="200" height="200" alt="covid-virus" class="center" />
                 </a>
                 <div class="name-title col s10 center-align valign-wrapper">COVID-19 Tracker</div>
-            </div>
-            <div class="row col s12 center-align valign-wrapper">
                 <h1>Find the latest COVID-19 statistics globally</h1>
             </div>
+            <div class="row col s12 center-align valign-wrapper"></div>
         </nav>
         <a id="homebtn" href="index.html" class="btn btn-outline-success">Home <span class="material-icons">home</span></a>
         <a id="top-ten-countries-effected" href="top-ten-countries.html" class="btn btn-outline-success">Top 10 Countries Effected <span class="material-icons">sort</span></a>
-        <a id="united-states-stats-btn" href="usa.html#united-states-stats" class="btn btn-outline-success current">United States Stats <span class="material-icons">poll</span></a>
+        <a id="united-states-stats-btn" href="usa.html#united-states-stats" class="btn btn-outline-success">United States Stats <span class="material-icons">poll</span></a>
         <a id="meet-the-team-btn" href="index.html#meet-the-team" class="btn btn-outline-success">Meet The Team <span class="material-icons">group</span></a>
-        <a id="test-btn" href="beta-features.html" class="btn btn-outline-success">Beta Features <span class="material-icons">poll</span></a>
+        <a id="test-btn" href="beta-features.html" class="btn btn-outline-success current">Beta Features<span class="material-icons">poll</span></a>
         <hr id="firstHr" />
         <main class="container-lg">
-            <section>
-                <div id="countries-stats" class="countries-stats">United States Stats</div>
-                <div class="stats">
-                    <div class="latest-report">
-                        <div class="total-cases">
-                            <div class="title">Active Cases</div>
-                            <div class="text-info value" id="active-casesUSA">0</div>
-                        </div>
-                        <div class="total-cases">
-                            <div class="title">Total Cases</div>
-                            <div class="text-warning value" id="total-casesUSA">0</div>
-                            <div id="new-casesUSA" class="new-value">+0</div>
-                        </div>
-                        <div class="recovered">
-                            <div class="title">Recovered</div>
-                            <div class="text-success value" id="total-recoveredUSA">0</div>
-                        </div>
-                        <div class="deaths">
-                            <div class="title">Deaths</div>
-                            <div class="text-danger value" id="deathsUSA">0</div>
-                            <div id="new-deathsUSA" class="new-value">+0</div>
-                        </div>
-                        <div class="total-cases">
-                            <div class="title">Death %</div>
-                            <div class="text-info value" id="percentUSA">0</div>
+            <div id="countries-stats" class="countries-stats">Countries Stats</div>
+            <div class="stats">
+                <div class="latest-report">
+                    <div class="country">
+                        <div class="name">Loading...</div>
+                        <div class="change-country text-info">Click to Select a Country</div>
+                        <div class="search-country hide">
+                            <div class="search-box">
+                                <input type="text" id="search-input" placeholder="Search Country..." />
+                                <img class="close" src="./images/close.svg" alt="" />
+                            </div>
+                            <div class="country-list"></div>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <h5 class="title">Last Updated</h5>
-                        <p class="text-info" id="last-updatedUSA">last updated</p>
+                    <div class="total-cases">
+                        <div class="title">Total Cases</div>
+                        <div class="value">0</div>
+                        <div class="new-value">+0</div>
                     </div>
-                    <div class="chart">
-                        <canvas id="usaChart"></canvas>
+                    <div class="recovered">
+                        <div class="title">Recovered</div>
+                        <div class="value">0</div>
+                        <div class="new-value">+0</div>
+                    </div>
+                    <div class="deaths">
+                        <div class="title">Deaths</div>
+                        <div class="value">0</div>
+                        <div class="new-value">+0</div>
                     </div>
                 </div>
-            </section>
+                <div class="chart">
+                    <canvas id="axes_line_chart"></canvas>
+                </div>
+            </div>
         </main>
         <footer>
             <!-- class="text-muted" -->
@@ -81,7 +78,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+        <script src="js/beta-features.js"></script>
         <script src="js/countries.js"></script>
         <script src="js/script.js"></script>
         <script src="js/functions.js"></script>
