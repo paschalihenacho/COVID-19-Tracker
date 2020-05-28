@@ -17,19 +17,11 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/style.css">
 
-    <!-- *********************End Reference Links******************** -->
+  <!-- *********************End Reference Links******************** -->
   <title>COVID-19 Tracker</title>
 </head>
 
 <body>
-   <!-- *********************End Reference Links******************** -->
-   <nav id="nav-bar" class="navbar text-center">
-    <div class="row">
-      <a class="navbar-brand col s2 center-align valign-wrapper" href="index.html">
-        <img id="icon" src="./images/icon.png" width="200" height="200" alt="covid-virus" class="center"> 
-      </a>
-      <div class="name-title col s10 center-align valign-wrapper">COVID-19 Tracker</div>
-  <!-- *********************End Reference Links******************** -->
   <nav id="nav-bar" class="navbar text-center">
     <div class="row">
       <a class="navbar-brand col s2 center-align valign-wrapper" href="index.html">
@@ -41,91 +33,12 @@
     <div class="row col s12 center-align valign-wrapper">
       <form id="searchForm" class="form-inline">
         <h1 class="search-for-country">Find the latest COVID-19 stats globally:</h1>
-        <input name="countryInput" id="countryInput" class="form-control"  placeholder="Enter a Country" aria-label="Search">
-        <a  id="search"   class=" btn btn-outline-success">Search <span class="material-icons">search</span></a>
+        <input name="countryInput" id="countryInput" class="form-control" placeholder="Enter a Country"
+          aria-label="Search">
+        <a id="search" class=" btn btn-outline-success">Search <span class="material-icons">search</span></a>
         <!-- <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       </form>
-
     </div>
-</nav>
-    <a id="homebtn" href="index.html" class=" btn btn-outline-success">Home <span class="material-icons">home</span></a>
-    <a id="top-ten-countries-effected" href="top-ten-countries.html" class="btn btn-outline-success">Top 10 Countries Effected <span class="material-icons">sort</span></a>
-    <a id="united-states-stats-btn" href="usa.html#united-states-stats" class="btn btn-outline-success">United States Stats <span class="material-icons">poll</span></a>
-    <a id="meet-the-team-btn" href="#meet-the-team" class="btn btn-outline-success">Meet The Team <span class="material-icons">group</span></a>
-    <a id="test-btn" href="test.html" class="btn btn-outline-success">Future Features <span class="material-icons">poll</span></a>
-    <hr id="firstHr">
-  <main>
-    <section>    
-      <div id="united-states-stats" class="united-states">
-      <h1 class="title" id="country"></h1>
-      </div>
-    <div class="row" id="stats">
-      <div class="container my-5">
-        <div class="row text-center">
-          <div class="us-stats-header col-3">
-            <h5>Active Case</h5>
-            <p class="text-info"  id="active-cases">active-cases</p>
-          </div>
-          <div class="us-stats-header col-3 ">
-            <h5>Confirmed</h5>
-            <p class="text-warning" id="total-cases">confirmed</p>
-          </div>
-          <div class="us-stats-header col-3 ">
-            <h5>New Cases</h5>
-            <p class="text-warning" id="new-cases">new-cases</p>
-          </div>
-          <div class="us-stats-header col-3 ">
-            <h5>New Deaths</h5>
-            <p class="text-warning" id="new-deaths">new-deaths</p>
-          </div>
-          <div class="text-success col-3">
-            <h5 class="us-stats-header" >Recorvered</h5>
-            <p class="text-success" id="total-recovered"></p>
-          </div>
-          <div class="us-stats-header col-3">
-            <h5>Deceased</h5>
-            <p class="text-danger" id="deaths">total-deaths</p>
-          </div>
-        </div>
-        <div class="text-center">            
-          <div class="us-stats-header col-12">
-            <h5 class="subtitle">Death Percentage <p class="parentheses">(of Cornfirmed Cases)</p></h5>
-            <h1 class="text-info" id="percent">percent</h1>
-          </div>
-        </div>
-        <div class="text-center">            
-          <div class="us-stats-header col-12">
-            <h5>Last Updated</h5>
-            <p class="text-info" id="updateCountry">last updated</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-        <hr class="divider" />
-        <section class="">
-          <div id="global-stats" class="global-stats">Global Stats</div>
-          <div class="container">
-           <div class="row">
-            <div class="Globackground global-stats-card col col-md-3">
-             <ul class="Globackground list-group list-group-flush">
-              <li class="Globackground list-group-item">
-               Cases
-               <h1 class="Globackground total-case" id="total_cases"></h1>
-              </li>
-              <li class="list-group-item">
-               Recovered
-               <h1 class="Globackground global-recovered" id="GlobalTotal_recovered"></h1>
-              </li>
-              <li class="list-group-item">
-               Unresolved Cases
-               <h1 id="total_unresolved"></h1>
-              </li>
-             </ul>
-            </div>
-            <div class="global-stats-card col col-md-3">
-             <div class="card">
-
   </nav>
   <a id="top-ten-countries-effected" href="top-ten-countries.html" class="btn btn-outline-success">Top 10 Countries
     Effected <span class="material-icons">sort</span></a>
@@ -135,43 +48,6 @@
     Stats <span class="material-icons">poll</span></a>
   <hr id="firstHr" />
   <main>
-    <div id="countries-stats" class="countries-stats">Countries Stats</div>
-    <div class="stats">
-      <div class="latest-report">
-        <div class="country">
-          <div class="name">Loading...</div>
-          <div class="change-country text-info">Click to Select a Country</div>
-          <div class="search-country hide">
-            <div class="search-box">
-              <input type="text" id="search-input" placeholder="Search Country...">
-              <img class="close" src="./images/close.svg" alt="">
-            </div>
-            <div class="country-list">
-
-            </div>
-          </div>
-        </div>
-        <div class="total-cases">
-          <div class="title">Total Cases</div>
-          <div class="value">0</div>
-          <div class="new-value">+0</div>
-        </div>
-        <div class="recovered">
-          <div class="title">Recovered</div>
-          <div class="value">0</div>
-          <div class="new-value">+0</div>
-        </div>
-        <div class="deaths">
-          <div class="title">Deaths</div>
-          <div class="value">0</div>
-          <div class="new-value">+0</div>
-        </div>
-      </div>
-
-      <div class="chart">
-        <canvas id="axes_line_chart"></canvas>
-      </div>
-    </div>
     <hr class="divider" />
     <section class="">
       <div id="global-stats" class="global-stats">Global Stats</div>
