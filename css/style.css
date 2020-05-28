@@ -47,17 +47,12 @@
         border: 1px solid #000000 !important;
     }
 
-    #homebtn:active{
-        background-color: red;
-        border: 1px solid #000000 !important;
-
-    }
-
     #homebtn.current{
-        background-color: red;
+        background-color: #A3262C;
         border: 1px solid #000000 !important;
 
     }
+
     #search:hover{
         background-color: thistle;
         color: #000000 !important;
@@ -73,6 +68,12 @@
         color: #000000 !important;
         border: 1px solid #000000 !important;
     }
+
+    #top-ten-countries-effected.current{
+        background-color: #A3262C;
+        border: 1px solid #000000 !important;
+
+    }
     .btn{
         margin: 10px;
         border-radius: 15px;
@@ -84,6 +85,24 @@
         border: 1px solid thistle !important;
         color: thistle !important;
     }
+
+    #united-states-stats-btn.current{
+        background-color: #A3262C;
+        border: 1px solid #000000 !important;
+    }
+
+    #test-btn:hover{
+        background-color: thistle;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+    }
+
+    #test-btn.current{
+        background-color: #A3262C;
+        border: 1px solid #000000 !important;
+    }
+
+
     .hire-me{
         margin: 10px;
         height: 50px !important;
