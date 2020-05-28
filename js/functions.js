@@ -13,10 +13,12 @@ $.ajax({
        var totalDeathsUSA = data["Total Deaths_text"];
        var totalRecorveredUSA = data["Total Recovered_text"];
        var lastUpadedUSA = (moment(data["Last Update"]).format('LL'));
-       console.log(data["Last Update"])
-       var percentageOfCountryDeathUSA = ((parseInt(totalDeathsUSA)) / (parseInt(totalCasesUSA))
+       var percentageOfCountryDeathUSA = ((parseInt(totalCasesUSA)) / (parseInt(totalDeathsUSA))
        *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
-   
+   console.log(totalDeathsUSA)
+   console.log(totalCasesUSA)
+   var result = (parseInt(totalCasesUSA)) / (parseInt(totalDeathsUSA))
+   console.log(result) 
            // appending data to UI
    
         $('#deathsUSA').text (totalDeathsUSA); //
@@ -53,15 +55,6 @@ $.ajax({
          death.push(obj.death)
          
    })
-      
-    // total_confirmed = stateData[0].positive;
-    // total_recovered = stateData[0].recovered;
-    // total_deaths = stateData[0].death;
- 
-    // $("#confirmed").append(total_confirmed);
-    // $("#recovered").append(total_recovered);
-    // $("#deceased").append(total_deaths);
-    
     
  var myChart = document.getElementById('usaChart').getContext('2d');
  

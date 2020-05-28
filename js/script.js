@@ -48,7 +48,7 @@ $(document).ready(function() {
         var newCountryName = countryName.toUpperCase();
         let lastUpaded = (moment(data["Last Update"]).format('LL'));
   
-        var percentageOfCountryDeath = ((parseInt(totalDeaths)) / (parseInt(totalCases))
+        var percentageOfCountryDeath = ((parseInt(totalCases)) / (parseInt(totalDeaths))
         *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
     
             // appending data to UI
