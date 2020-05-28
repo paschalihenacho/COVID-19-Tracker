@@ -33,7 +33,7 @@ $(document).ready(function() {
     // }else{
     //               $("#error").html('Field cannot be empty');
     //         }
-      }
+    }
 
     // This function appends searched country to the countryCard
     function showCountry(data) {
@@ -44,8 +44,9 @@ $(document).ready(function() {
         var totalCases = data["Total Cases_text"];
         var totalDeaths = data["Total Deaths_text"];
         var totalRecorvered = data["Total Recovered_text"];
-        var countryName = data["Country_text"];
-        let lastUpaded = (moment(data["Last Update"]).format('LLLL'));
+        var countryName = (data["Country_text"]);
+        var newCountryName = countryName.toUpperCase();
+        let lastUpaded = (moment(data["Last Update"]).format('LL'));
   
         var percentageOfCountryDeath = ((parseInt(totalDeaths)) / (parseInt(totalCases))
         *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
@@ -60,7 +61,7 @@ $(document).ready(function() {
             $('#total-recovered').text (totalRecorvered);
             $('#total-cases').text (totalCases);
             $('#last-updated').text (lastUpaded);
-            $('#country').text (countryName);
+            $('#country').text (newCountryName);
 
 
 

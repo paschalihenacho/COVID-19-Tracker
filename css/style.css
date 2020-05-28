@@ -188,6 +188,7 @@
     
     #stats {
         background-color: #000000;
+        /* height: 40vh; */
     }
     
     #cardDiv {
@@ -560,7 +561,17 @@ main{
 
     color: #FFF;
 }
-
+.country-title{
+    text-align: center;
+    color: #FFF;
+    background-color: #A3262C;
+    margin-left: 320px;
+    margin-right: 320px;
+    margin-top: 20px;
+    border-radius: 40px;
+    font-weight: bolder;
+    font-size: xx-large;
+}
 .country,
 .total-cases,
 .recovered,
@@ -568,11 +579,7 @@ main{
     height: 100px;
 }
 
-.name{
-    font-size: 2.2em;
-    color: #be64f1;
-    font-weight: bold;
-}
+
 
 .change-country{
     cursor: pointer;
