@@ -45,24 +45,25 @@ $(document).ready(function() {
         var totalDeaths = data["Total Deaths_text"];
         var totalRecorvered = data["Total Recovered_text"];
         var totalRecorvered = data["Total Recovered_text"];
+       // var lastUpaded = data["Last Update"];
     
         // Convert date
-        let lastUpaded = new Date(data["Last Update"]);
-        let dd = lastUpaded.getDate();
+        let lastUpaded = (moment(data["Last Update"]).format('LLLL'));
+        // let dd = lastUpaded.getDate();
     
-        let mm = lastUpaded.getMonth()+1; 
-        const yyyy = lastUpaded.getFullYear();
-        if(dd<10) 
-            {
-            dd=`0${dd}`;
-            } 
+        // let mm = lastUpaded.getMonth()+1; 
+        // const yyyy = lastUpaded.getFullYear();
+        // if(dd<10) 
+        //     {
+        //     dd=`0${dd}`;
+        //     } 
     
-            if(mm<10) 
-            {
-            mm=`0${mm}`;
-            } 
+        //     if(mm<10) 
+        //     {
+        //     mm=`0${mm}`;
+        //     } 
     
-            lastUpaded = `${mm}/${dd}/${yyyy}`;
+        //     lastUpaded = `${mm}/${dd}/${yyyy}`;
     
     
             var percentageOfCountryDeath = ((parseInt(data["Total Deaths_text"])) / (parseInt(totalCases))
@@ -78,6 +79,7 @@ $(document).ready(function() {
             $('#percent').text (percentageOfCountryDeath)
             $('#total-recovered').text (totalRecorvered)
             $('#total-cases').text (totalCases)
+            $('#last-updated').text (lastUpaded)
     
     }
     //===============================================================================
