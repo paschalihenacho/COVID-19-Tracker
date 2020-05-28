@@ -99,6 +99,7 @@
 
     #test-btn.current{
         background-color: #A3262C;
+        color: thistle;
         border: 1px solid #000000 !important;
     }
 
