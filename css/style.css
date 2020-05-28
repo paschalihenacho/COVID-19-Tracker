@@ -320,7 +320,7 @@
     .divider{
         margin-top: 40px;
         border: 1px solid thistle;
-        width: 100vw !important;
+        width: 100% !important;
     }
     .meet-the-team{
         /* padding-right: 1px !important; */
