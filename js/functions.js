@@ -15,10 +15,7 @@ $.ajax({
        var lastUpadedUSA = (moment(data["Last Update"]).format('LL'));
        var percentageOfCountryDeathUSA = ((parseInt(totalCasesUSA)) / (parseInt(totalDeathsUSA))
        *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
-   console.log(totalDeathsUSA)
-   console.log(totalCasesUSA)
-   var result = (parseInt(totalCasesUSA)) / (parseInt(totalDeathsUSA))
-   console.log(result) 
+
            // appending data to UI
    
         $('#deathsUSA').text (totalDeathsUSA); //
