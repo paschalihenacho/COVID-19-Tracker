@@ -18,7 +18,7 @@
   <!-- *********************End Reference Links******************** -->
   <title>Covid-19 Tracker</title>
 </head>
-<body>
+<body >
   <!-- *********************End Reference Links******************** -->
   <nav id="nav-bar" class="navbar text-center">
     <div class="row">
@@ -48,7 +48,8 @@
       class="material-icons">poll</span></a>
   <hr id="firstHr">
   <main>
-    <section>
+    <section  >
+      <div>
       <div id="united-states-stats" class="united-states">
         <h1 class="title" id="country"></h1>
       </div>
@@ -80,21 +81,28 @@
               <p class="text-danger" id="deaths">total-deaths</p>
             </div>
           </div>
-          <div class="text-center">
-            <div class="us-stats-header col-12">
-              <h5 class="subtitle">Death Percentage <p class="parentheses">(of Cornfirmed Cases)</p>
-              </h5>
+          <div class="row text-center">
+            <div class="us-stats-header col-6">
+              <h5 class="subtitle">Death Percentage</h5>
               <h1 class="text-info" id="percent">percent</h1>
             </div>
-          </div>
-          <div class="text-center">
-            <div class="us-stats-header col-12">
+            <div class="us-stats-header col-6">
               <h5>Last Updated</h5>
               <p class="text-info" id="last-updated">last updated</p>
             </div>
           </div>
         </div>
       </div>
+      <div class="container container-fluid">
+        <div class="">
+          <div id="chartCard" class="card">
+                <div class="card-body">
+                    <canvas class="responsive" id="my-country-chart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
     </section>
     <hr class="divider" />
     <section class="">
@@ -182,36 +190,48 @@
     <section id="meet-the-team" class="container">
       <h1 class="meet-the-teamTxt">Meet The Team</h1>
       <div class="myGrid">
-        <div class="meet-the-team card" style="width: 18rem;">
-          <div class="card-body mySubGrid">
-            <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan" />
+        <div class="meet-the-team card">
+          <div class="hire-me-body text-center card-body">
+            <img class="img-fluid rounded rounded-circle referencesImag" src="./images/paschal.png" alt="Ryan" />
             <aside>
               <h2 class="card-title my-2">Paschal Ihenacho</h2>
-              <p class="card-subtitle"><strong>Title</strong></p>
+              <p class="card-subtitle"><strong>Web Developer</strong></p>
+
               <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me
                 <span class="material-icons">call</span></a>
+                <a class="social" href="https://www.linkedin.com/in/paschal-ihenacho/"><i class="fab fa-linkedin"></i></a>
+                <a class="social" href="paschal.ihenacho@gmail.com"><i class="fab fa-google-plus"></i></a>
+                <a class="social" href="https://github.com/paschalihenacho"><i class="fab fa-github"></i></a>
             </aside>
           </div>
         </div>
-        <div class="meet-the-team card" style="width: 18rem;">
-          <div class="card-body mySubGrid">
-            <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan" />
+        <div class="meet-the-team card">
+          <div class="hire-me-body text-center card-body">
+            <img class="img-fluid rounded rounded-circle referencesImag" src="./images/code.png" alt="Ryan" />
             <aside>
               <h2 class="card-title my-2">Koan Loc</h2>
-              <p class="card-subtitle"><strong>Title</strong></p>
+              <p class="card-subtitle"><strong>Web Developer</strong></p>
+
               <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me
                 <span class="material-icons">call</span></a>
+                <a class="social" href="https://www.linkedin.com/in/paschal-ihenacho/"><i class="fab fa-linkedin"></i></a>
+                <a class="social" href="paschal.ihenacho@gmail.com"><i class="fab fa-google-plus"></i></a>
+                <a class="social" href="https://github.com/paschalihenacho"><i class="fab fa-github"></i></a>
             </aside>
           </div>
         </div>
-        <div class="meet-the-team card" style="width: 18rem;">
-          <div class="card-body mySubGrid">
-            <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan" />
+        <div class="meet-the-team card">
+          <div class="hire-me-body text-center card-body">
+            <img class="img-fluid rounded rounded-circle referencesImag" src="./images/code.png" alt="Ryan" />
             <aside>
               <h2 class="card-title my-2">Malcolm Barnes</h2>
-              <p class="card-subtitle"><strong>Title</strong></p>
-              <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me
+              <p class="card-subtitle"><strong>Web Developer</strong></p>
+
+              <a href="#" class="hire-me btn btn-outline-success">Hire Me
                 <span class="material-icons">call</span></a>
+                <a class="social" href="#"><i class="fab fa-linkedin"></i></a>
+                <a class="social" href="#"><i class="fab fa-google-plus"></i></a>
+                <a class="social" href="#"><i class="fab fa-github"></i></a>
             </aside>
           </div>
         </div>
@@ -220,7 +240,7 @@
   </main>
   <footer>
     <!-- class="text-muted" -->
-    <div class="container">
+    <div class="container text-muted">
       <span>&copy; Paschal Ihenacho, Koan Loc, Malcolm Barnes 2020 </span>
     </div>
   </footer>
@@ -232,32 +252,5 @@
   <script src="js/countries.js"></script>
   <script src="js/script.js"></script>
 </body>
-<<<<<<< HEAD
 <!--This is a random comment.-->
 </html>
-=======
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--This is a random comment.-->
-</html>
->>>>>>> 901ab80d80454e3b17d3766b59aeb1ee37dfa82a
