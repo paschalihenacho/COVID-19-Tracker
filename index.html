@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +18,7 @@
   <!-- *********************End Reference Links******************** -->
   <title>Covid-19 Tracker</title>
 </head>
-
-<body>
+<body >
   <!-- *********************End Reference Links******************** -->
   <nav id="nav-bar" class="navbar text-center">
     <div class="row">
@@ -35,7 +33,6 @@
         <input name="countryInput" id="countryInput" class="form-control" placeholder="Enter a Country"
           aria-label="Search">
         <a id="search" class=" btn btn-outline-success">Search <span class="material-icons">search</span></a>
-        <!-- <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       </form>
     </div>
   </nav>
@@ -50,57 +47,42 @@
       class="material-icons">poll</span></a>
   <hr id="firstHr">
   <main>
-    <section>
-      <div id="united-states-stats" class="united-states">
-        <h1 class="title" id="country"></h1>
+    <div id="countries-stats" class="countries-stats">Countries Stats</div>
+  <div class="stats">
+    <h1 class="country-title" id="country">country</h1>
+      <div class="latest-report">
+        <div class="total-cases">
+          <div class="title">Active Cases</div>
+          <div class="text-info value" id="active-cases">0</div>
       </div>
-      <div class="row" id="stats">
-        <div class="container my-5">
-          <div class="row text-center">
-            <div class="us-stats-header col-3">
-              <h5>Active Case</h5>
-              <p class="text-info" id="active-cases">active-cases</p>
-            </div>
-            <div class="us-stats-header col-3 ">
-              <h5>Confirmed</h5>
-              <p class="text-warning" id="total-cases">confirmed</p>
-            </div>
-            <div class="us-stats-header col-3 ">
-              <h5>New Cases</h5>
-              <p class="text-warning" id="new-cases">new-cases</p>
-            </div>
-            <div class="us-stats-header col-3 ">
-              <h5>New Deaths</h5>
-              <p class="text-warning" id="new-deaths">new-deaths</p>
-            </div>
-            <div class="text-success col-3">
-              <h5 class="us-stats-header">Recovered</h5>
-              <p class="text-success" id="total-recovered"></p>
-            </div>
-            <div class="us-stats-header col-3">
-              <h5>Deceased</h5>
-              <p class="text-danger" id="deaths">total-deaths</p>
-            </div>
+          <div class="total-cases">
+              <div class="title">Total Cases</div>
+              <div class="text-warning value" id="total-cases">0</div>
+              <div id="new-cases" class="new-value">+0</div>
           </div>
-          <div class="text-center">
-            <div class="us-stats-header col-12">
-              <h5 class="subtitle">Death Percentage <p class="parentheses">(of Cornfirmed Cases)</p>
-              </h5>
-              <h1 class="text-info" id="percent">percent</h1>
-            </div>
+          <div class="recovered">
+              <div class="title">Recovered</div>
+              <div class="text-success value" id="total-recovered">0</div>
           </div>
-          <div class="text-center">
-            <div class="us-stats-header col-12">
-              <h5>Last Updated</h5>
-              <p class="text-info" id="updateCountry">last updated</p>
-            </div>
+          <div class="deaths">
+              <div class="title">Deaths</div>
+              <div class="text-danger value" id="deaths">0</div>
+              <div id="new-deaths" class="new-value">+0</div>
           </div>
+          <div class="total-cases">
+            <div class="title">Death %</div>
+            <div class="text-info value" id="percent">0</div>
         </div>
       </div>
-    </section>
-    <hr class="divider" />
-
-    <section class="">
+      <div class="text-center">
+        <h5 class="title">Last Updated</h5>
+        <p class="text-info" id="last-updated">last updated</p>
+      </div>
+      <div class="chart">
+        <canvas id="my-country-chart"></canvas>
+    </div>
+      </div>
+    <section  >
       <div id="global-stats" class="global-stats">Global Stats</div>
       <div class="container">
         <div class="row">
@@ -162,10 +144,10 @@
       </div>
       <div class="container-fluid">
         <div class="text-center">
-          <div class="us-stats-header s12">
+          <!-- <div class="us-stats-header s12">
             <h5>Last Updated</h5>
             <p class="text-info" id="updated"></p>
-          </div>
+          </div> -->
         </div>
         <!-- <div class="col">
             <div id="chartCard" class="card">
@@ -179,43 +161,54 @@
         </div>
       </div>
     </section>
-
     <hr class="divider" />
     <!-- MEET THE TEAM DIV -->
     <hr id="divider" />
     <section id="meet-the-team" class="container">
       <h1 class="meet-the-teamTxt">Meet The Team</h1>
       <div class="myGrid">
-        <div class="meet-the-team card" style="width: 18rem;">
-          <div class="card-body mySubGrid">
-            <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan" />
+        <div class="meet-the-team card">
+          <div class="hire-me-body text-center card-body">
+            <img class="img-fluid rounded rounded-circle referencesImag" src="./images/paschal.png" alt="Ryan" />
             <aside>
               <h2 class="card-title my-2">Paschal Ihenacho</h2>
-              <p class="card-subtitle"><strong>Title</strong></p>
+              <p class="card-subtitle"><strong>Web Developer</strong></p>
+
               <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me
                 <span class="material-icons">call</span></a>
+                <a class="social" href="https://www.linkedin.com/in/paschal-ihenacho/"><i class="fab fa-linkedin"></i></a>
+                <a class="social" href="paschal.ihenacho@gmail.com"><i class="fab fa-google-plus"></i></a>
+                <a class="social" href="https://github.com/paschalihenacho"><i class="fab fa-github"></i></a>
             </aside>
           </div>
         </div>
-        <div class="meet-the-team card" style="width: 18rem;">
-          <div class="card-body mySubGrid">
-            <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan" />
+        <div class="meet-the-team card">
+          <div class="hire-me-body text-center card-body">
+            <img class="img-fluid rounded rounded-circle referencesImag" src="./images/code.png" alt="Ryan" />
             <aside>
               <h2 class="card-title my-2">Koan Loc</h2>
-              <p class="card-subtitle"><strong>Title</strong></p>
+              <p class="card-subtitle"><strong>Web Developer</strong></p>
+
               <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me
                 <span class="material-icons">call</span></a>
+                <a class="social" href="https://www.linkedin.com/in/paschal-ihenacho/"><i class="fab fa-linkedin"></i></a>
+                <a class="social" href="paschal.ihenacho@gmail.com"><i class="fab fa-google-plus"></i></a>
+                <a class="social" href="https://github.com/paschalihenacho"><i class="fab fa-github"></i></a>
             </aside>
           </div>
         </div>
-        <div class="meet-the-team card" style="width: 18rem;">
-          <div class="card-body mySubGrid">
-            <img class="img-fluid referencesImag" src="./images/code.png" alt="Ryan" />
+        <div class="meet-the-team card">
+          <div class="hire-me-body text-center card-body">
+            <img class="img-fluid rounded rounded-circle referencesImag" src="./images/code.png" alt="Ryan" />
             <aside>
               <h2 class="card-title my-2">Malcolm Barnes</h2>
-              <p class="card-subtitle"><strong>Title</strong></p>
-              <a href="https://www.linkedin.com/in/paschal-ihenacho/" class="hire-me btn btn-outline-success">Hire Me
+              <p class="card-subtitle"><strong>Web Developer</strong></p>
+
+              <a href="#" class="hire-me btn btn-outline-success">Hire Me
                 <span class="material-icons">call</span></a>
+                <a class="social" href="#"><i class="fab fa-linkedin"></i></a>
+                <a class="social" href="#"><i class="fab fa-google-plus"></i></a>
+                <a class="social" href="#"><i class="fab fa-github"></i></a>
             </aside>
           </div>
         </div>
@@ -224,7 +217,7 @@
   </main>
   <footer>
     <!-- class="text-muted" -->
-    <div class="container">
+    <div class="container text-muted">
       <span>&copy; Paschal Ihenacho, Koan Loc, Malcolm Barnes 2020 </span>
     </div>
   </footer>
@@ -236,5 +229,5 @@
   <script src="js/countries.js"></script>
   <script src="js/script.js"></script>
 </body>
-
+<!--This is a random comment.-->
 </html>
