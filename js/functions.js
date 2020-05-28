@@ -48,7 +48,7 @@ $.ajax({
 
     var myChart = document.getElementById("usaChart").getContext("2d");
 
-    var chart = new Chart(myChart, {
+     myChart = new Chart(myChart, {
         type: "bar",
         data: {
             labels: state,
