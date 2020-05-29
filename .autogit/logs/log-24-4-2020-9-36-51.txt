@@ -1,0 +1,36 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 24 2020 09:36:51 GMT-0500 (Central Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* index.html
+* top-ten-countries.html
+* usa.html
+
+
+Created files:
+* resources/css/Gilroy-Regular.woff
+* resources/css/style.css
+* resources/images/bg.jpg
+* resources/images/close.svg
+* resources/images/logo.png
+* resources/js/app.js
+* resources/js/countries.js
+
+
+Deleted files:
+
+
+Renamed files:
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
+* [object Object]
