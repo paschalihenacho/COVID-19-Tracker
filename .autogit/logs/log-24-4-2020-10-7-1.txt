@@ -1,0 +1,28 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 24 2020 10:07:01 GMT-0500 (Central Daylight Time)
+------------------------------------------------------
+
+Modified files:
+* functions.js
+* index.html
+* script.js
+
+
+Created files:
+
+
+Deleted files:
+* resources/css/msdropdown/dd.css
+* resources/css/msdropdown/flags.css
+* resources/images/msdropdown/icons/blank.gif
+* resources/images/msdropdown/icons/flagssprite_small.png
+* resources/images/msdropdown/skin1/dd_arrow.gif
+* resources/images/msdropdown/skin1/title-bg.gif
+* resources/js/app.js
+* resources/js/jquery/jquery-1.8.2.min.js
+* resources/js/msdropdown/jquery.dd.js
+* resources/js/msdropdown/jquery.dd.min.js
+
+
+Renamed files:
+* [object Object]
