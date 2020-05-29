@@ -37,13 +37,14 @@ $(document).ready(function () {
 
     // This function appends searched country to the countryCard
     function showCountry(data) {
+
         var activeCases = data["Active Cases_text"];
         var newCases = data["New Cases_text"];
         var newDeaths = data["New Deaths_text"];
         var totalCases = data["Total Cases_text"];
         var totalDeaths = data["Total Deaths_text"];
         var totalRecorvered = data["Total Recovered_text"];
-        var countryName = data["Country_text"];
+        var countryName = (data["Country_text"]);
         var newCountryName = countryName.toUpperCase();
         let lastUpaded = (moment(data["Last Update"]).format('LL'));
 
@@ -86,32 +87,33 @@ $(document).ready(function () {
                     {
                         label: "Confirmed Cases",
                         backgroundColor: ["#3e95cd"],
-                        data: totalCases,
+                        data: totalCases
                     },
                     {
                         label: "Recovered Cases",
                         backgroundColor: ["#8e5ea2"],
-                        data: totalRecorvered,
+                        data: totalRecorvered
                     },
                     {
                         label: "Deceased",
                         backgroundColor: ["#3cba9f"],
-                        data: totalDeaths,
-                    },
-                ],
+                        data: totalDeaths
+                    }
+                ]
             },
             options: {
                 legend: { display: false },
                 title: {
                     display: true,
-                    text: countryName,
-                },
-            },
+                    text: countryName
+                }
+            }
         });
-    }
-    //====================SEARCH CLICK=============================
 
-    $("#search").click(function (event) {
+    }
+    //===============================================================================
+
+    $('#search').click(function (event) {
         event.preventDefault();
 
         queryURL = buildQueryURL();
@@ -119,15 +121,26 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET",
-        }).then(showCountry);
-    });
 
-});
+        }).then(showCountry);
+    })
+    // AJAX CALL FOR GLOBAL DATA
+    var globalURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true"
+
+    $.ajax({
+        url: globalURL,
+        method: "GET",
+
+    }).then(showCountry);
+
+
+})
+    //============End Country Stats (United States)===================//
 
 // AJAX CALL FOR GLOBAL DATA
 $.ajax({
-    url: "https://api.thevirustracker.com/free-api?global=stats",
-    dataType: "json",
+    url: 'https://api.thevirustracker.com/free-api?global=stats',
+    dataType: 'json',
     success: function (data) {
         var total_cases = data.results[0].total_cases;
         var GlobalTotal_recovered = data.results[0].total_recovered;
@@ -139,14 +152,15 @@ $.ajax({
         var total_serious_cases = data.results[0].total_serious_cases;
         var total_affected_countries = data.results[0].total_affected_countries;
 
-        $("#total_cases").text(total_cases);
-        $("#GlobalTotal_recovered").text(GlobalTotal_recovered);
-        $("#total_unresolved").text(total_unresolved);
-        $("#GlobalDeaths").text(GlobalDeaths);
-        $("#total_new_cases_today").text(total_new_cases_today);
-        $("#total_new_deaths_today").text(total_new_deaths_today);
-        $("#total_active_cases").text(total_active_cases);
-        $("#total_serious_cases").text(total_serious_cases);
-        $("#total_affected_countries").text(total_affected_countries);
-    },
+        $('#total_cases').text(total_cases)
+        $('#GlobalTotal_recovered').text(GlobalTotal_recovered)
+        $('#total_unresolved').text(total_unresolved)
+        $('#GlobalDeaths').text(GlobalDeaths)
+        $('#total_new_cases_today').text(total_new_cases_today)
+        $('#total_new_deaths_today').text(total_new_deaths_today)
+        $('#total_active_cases').text(total_active_cases)
+        $('#total_serious_cases').text(total_serious_cases)
+        $('#total_affected_countries').text(total_affected_countries)
+
+    }
 });
