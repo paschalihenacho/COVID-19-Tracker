@@ -1,23 +1,17 @@
 // Smooth scroll with animation
 $(document).ready(function () {
-    $('a[href^="#"]').on("click", function (e) {
+
+    $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
 
         var target = this.hash,
             $target = $(target);
 
-        $("html, body")
-            .stop()
-            .animate(
-                {
-                    scrollTop: $target.offset().top,
-                },
-                900,
-                "swing",
-                function () {
-                    window.location.hash = target;
-                }
-            );
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
     });
 });
 
@@ -30,6 +24,8 @@ $(document).ready(function () {
 
         //  var queryURL = "https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=jhu&timelines=true&country=";
         var queryURL = "https://covid-19.dataflowkit.com/v1/";
+
+
 
         //  console.log(queryParams)
         return queryURL + queryParams;
@@ -49,31 +45,41 @@ $(document).ready(function () {
         var totalRecorvered = data["Total Recovered_text"];
         var countryName = data["Country_text"];
         var newCountryName = countryName.toUpperCase();
-        let lastUpaded = moment(data["Last Update"]).format("LL");
+        let lastUpaded = (moment(data["Last Update"]).format('LL'));
 
-        var percentageOfCountryDeath = ((parseInt(totalCases) / parseInt(totalDeaths)) * 100).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
+        var percentageOfCountryDeath = ((parseInt(totalCases)) / (parseInt(totalDeaths))
+            * 100).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
 
         // appending data to UI
 
-        $("#deaths").text(totalDeaths); //
-        $("#active-cases").text(activeCases); //
-        $("#new-cases").text(newCases);
-        $("#new-deaths").text(newDeaths);
-        $("#percent").text(percentageOfCountryDeath);
-        $("#total-recovered").text(totalRecorvered);
-        $("#total-cases").text(totalCases);
-        $("#last-updated").text(lastUpaded);
-        $("#country").text(newCountryName);
+        $('#deaths').text(totalDeaths); //
+        $('#active-cases').text(activeCases); //
+        $('#new-cases').text(newCases);
+        $('#new-deaths').text(newDeaths);
+        $('#percent').text(percentageOfCountryDeath);
+        $('#total-recovered').text(totalRecorvered);
+        $('#total-cases').text(totalCases);
+        $('#last-updated').text(lastUpaded);
+        $('#country').text(newCountryName);
+
+
 
         // 4 empty arrays for chart
-        var totalCases = [];
-        var totalDeaths = [];
-        var totalRecorvered = [];
+        var totalCases = []
+        var totalDeaths = []
+        var totalRecorvered = []
 
-        var myChart = document.getElementById("my-country-chart").getContext("2d");
+        // $.each(data, function(id, obj){
+        //     totalCases.push(obj.totalCases);
+        //     totalDeaths.push(obj.totalDeaths);
+        //     totalRecorvered.push(obj.totalRecorvered);
+
+        //    })
+        //     console.log(totalCases)
+        var myChart = document.getElementById('my-country-chart').getContext('2d');
 
         myChart = new Chart(myChart, {
-            type: "bar",
+            type: 'bar',
             data: {
                 labels: ["Confirmed", "Recovered", "Deaths"],
                 datasets: [
