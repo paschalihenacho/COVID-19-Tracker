@@ -547,7 +547,7 @@ main{
 }
 /* -------- BG IMAGE -------- */
 .stats{
-    width: 100%;
+    width: auto;
     background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) ,url('../images/covid19_jh.png');
     background-size: cover;
 }
@@ -557,7 +557,7 @@ main{
     justify-content: space-between;
     align-items: center;
 
-    width: 80%;
+    /* width: 80%; */
     margin: 0 auto;
 
     color: #FFF;
@@ -610,8 +610,8 @@ main{
 }
 /* -------- CHART -------- */
 .chart{
-    width: 80%;
-    height: 70vh;
+    width: auto;
+    height: 100vh;
     min-height: 500px;
 
     margin: 0 auto;
