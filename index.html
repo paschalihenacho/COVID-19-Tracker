@@ -48,10 +48,12 @@
       class="material-icons">poll</span></a>
   <hr id="firstHr">
   <main>
-    <div id="countries-stats" class="countries-stats">Countries Stats</div>
+    <div>
+      <div id="countries-stats" class="countries-stats">Country Stats</div>
+      <div id="country" class=" country-title countries-stats text-center">country</div>
+    </div>    
   <div class="stats">
-    <h1 class="country-title" id="country">country</h1>
-      <div class="latest-report">
+      <div class="latest-report container">
         <div class="total-cases">
           <div class="title">Active Cases</div>
           <div class="text-info value" id="active-cases">0</div>
@@ -92,11 +94,11 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   Cases
-                  <h1 class="text-primary" id="total_cases"></h1>
+                  <h1 class="text-primary value" id="total_cases"></h1>
                 </li>
                 <li class="list-group-item">
                   Recovered
-                  <h1 class="text-success" id="GlobalTotal_recovered"></h1>
+                  <h1 class="text-success value" id="GlobalTotal_recovered"></h1>
                 </li>
                 <li class="list-group-item">
                   Unresolved Cases
@@ -110,15 +112,15 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   Deaths
-                  <h1 class="text-danger" id="GlobalDeaths"></h1>
+                  <h1 class="text-danger value" id="GlobalDeaths"></h1>
                 </li>
                 <li class="list-group-item">
                   New Cases Today
-                  <h1 class="text-danger" id="total_new_cases_today"></h1>
+                  <h1 class="text-danger value" id="total_new_cases_today"></h1>
                 </li>
                 <li class="list-group-item">
                   New Deaths Today
-                  <h1 class="text-danger" id="total_new_deaths_today"></h1>
+                  <h1 class="text-danger value" id="total_new_deaths_today"></h1>
                 </li>
               </ul>
             </div>
@@ -132,11 +134,11 @@
                 </li>
                 <li class="list-group-item">
                   Serious Cases
-                  <h1 class="text-danger" id="total_serious_cases"></h1>
+                  <h1 class="text-danger value" id="total_serious_cases"></h1>
                 </li>
                 <li class="list-group-item">
                   Countries Effected
-                  <h1 class="text-warning" id="total_affected_countries"></h1>
+                  <h1 class="text-warning value" id="total_affected_countries"></h1>
                 </li>
               </ul>
             </div>
