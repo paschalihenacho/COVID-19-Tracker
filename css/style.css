@@ -180,6 +180,7 @@
         background-color: black;
         text-align: center;
         color: white;
+        font-size: 25px;
     }
     /* =============GLOBAL SECTION========= */
     #dashboard {
@@ -592,6 +593,7 @@ main{
 .total-cases .value{
     font-size: 2em;
     font-weight: bold;
+    color: #2196f3;
 }
 .recovered .value{
     font-size: 2em;
