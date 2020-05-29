@@ -551,7 +551,7 @@ main{
 /* -------- BG IMAGE -------- */
 .stats{
     width: auto;
-    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) ,url('../images/covid19_jh.png');
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)) ,url('../images/covid-19.png');
     background-size: cover;
 }
 /* -------- LATEST REPORT -------- */
@@ -610,6 +610,7 @@ main{
 }
 .new-value{
     font-size: 1.3em;
+    padding: 10px;
 }
 /* -------- CHART -------- */
 .chart{
