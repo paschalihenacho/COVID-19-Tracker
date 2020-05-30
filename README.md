@@ -23,17 +23,13 @@ Mankind has been plagued by COVID-19 with no end in sight.  We created an app th
 
 ## Usage
 ![GitHub Logo](/images/1.png)
-Format: ![Alt Text](url)
 ![GitHub Logo](/images/2.png)
-Format: ![Alt Text](url)
 ![GitHub Logo](/images/3.png)
-Format: ![Alt Text](url)
 ![GitHub Logo](/images/4.png)
-Format: ![Alt Text](url)
 
 ## Credits
 
-- [Unsplash] (Icon Image by CDC on unsplash.com)
+- [Unsplash-CDC] (Icon Image by CDC on unsplash.com)
 - [ExpDev07] (https://github.com/ExpDev07/coronavirus-tracker-api)
 - [Apify] (https://apify.com/covid-19 )
 - [Coding-Shiksha] (https://codingshiksha.com)
