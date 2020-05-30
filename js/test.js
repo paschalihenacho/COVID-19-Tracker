@@ -69,32 +69,7 @@ function getData(user_country){
 		updateUI();
     });
 
-    // fetch("https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_days_by_country.php?country=%3Crequired%3E", {
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-host": "coronavirus-monitor-v2.p.rapidapi.com",
-    //         "x-rapidapi-key": "409edfd192msh76f5ae7cd381374p17ad34jsn668e30d41ee5"
-    //     }
-	// })
-	// .then( response => {
-	// 	return response.json();
-	// })
-	// .then( data => {
-	// 	dates = Object.keys(data);
-		
-	// 	dates.forEach( date => {
-	// 		let DATA = data[date];
-
-	// 		formatedDates.push(formatDate(date));
-	// 		app_data.push(DATA);
-	// 		cases_list.push(parseInt(DATA.total_cases.replace(/,/g, "")));
-	// 		recovered_list.push(parseInt(DATA.total_recovered.replace(/,/g, "")));
-	// 		deaths_list.push(parseInt(DATA.total_deaths.replace(/,/g, "")));
-	// 	})
-	// })
-	// .then( () => {
-	// 	updateUI();
-    // })
+    
  
     getData(user_country); 
 }
