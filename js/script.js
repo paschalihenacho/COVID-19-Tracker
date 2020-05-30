@@ -135,7 +135,7 @@ $(document).ready(function () {
 
 
 })
-    //============End Country Stats (United States)===================//
+//============End Country Stats (United States)===================//
 
 // AJAX CALL FOR GLOBAL DATA
 $.ajax({
