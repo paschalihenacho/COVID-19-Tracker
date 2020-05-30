@@ -38,17 +38,17 @@ $(document).ready(function () {
     // This function appends searched country to the countryCard
     function showCountry(data) {
 
-        var activeCases = data["Active Cases_text"];
-        var newCases = data["New Cases_text"];
-        var newDeaths = data["New Deaths_text"];
-        var totalCases = data["Total Cases_text"];
-        var totalDeaths = data["Total Deaths_text"];
-        var totalRecorvered = data["Total Recovered_text"];
-        var countryName = (data["Country_text"]);
+        var activeCases = data["Active Cases_text"].replace(/,/g, "");
+        var newCases = data["New Cases_text"].replace(/,/g, "");
+        var newDeaths = data["New Deaths_text"].replace(/,/g, "");
+        var totalCases = data["Total Cases_text"].replace(/,/g, "");
+        var totalDeaths = data["Total Deaths_text"].replace(/,/g, "");
+        var totalRecorvered = data["Total Recovered_text"].replace(/,/g, "");
+        var countryName = (data["Country_text"]).replace(/,/g, "");
         var newCountryName = countryName.toUpperCase();
         let lastUpaded = (moment(data["Last Update"]).format('LL'));
 
-        var percentageOfCountryDeath = ((parseInt(totalCases)) / (parseInt(totalDeaths))
+        var percentageOfCountryDeath = ((parseInt(totalDeaths.replace(/,/g, ""))) / (parseInt(totalCases.replace(/,/g, "")))
             * 100).toLocaleString("en", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
 
         // appending data to UI

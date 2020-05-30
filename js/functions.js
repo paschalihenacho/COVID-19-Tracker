@@ -7,14 +7,14 @@ $.ajax({
    
    }).then(function(data) {
        
-       var activeCasesUSA = data["Active Cases_text"]; 
-       var newCasesUSA = data["New Cases_text"];
-       var newDeathsUSA = data["New Deaths_text"];
-       var totalCasesUSA = data["Total Cases_text"];
-       var totalDeathsUSA = data["Total Deaths_text"];
-       var totalRecorveredUSA = data["Total Recovered_text"];
+       var activeCasesUSA = data["Active Cases_text"].replace(/,/g, ""); 
+       var newCasesUSA = data["New Cases_text"].replace(/,/g, "");
+       var newDeathsUSA = data["New Deaths_text"].replace(/,/g, "");
+       var totalCasesUSA = data["Total Cases_text"].replace(/,/g, "");
+       var totalDeathsUSA = data["Total Deaths_text"].replace(/,/g, "");
+       var totalRecorveredUSA = data["Total Recovered_text"].replace(/,/g, "");
        var lastUpadedUSA = (moment(data["Last Update"]).format('LL'));
-       var percentageOfCountryDeathUSA = ((parseInt(totalCasesUSA)) / (parseInt(totalDeathsUSA))
+       var percentageOfCountryDeathUSA = ((parseInt(totalDeathsUSA.replace(/,/g, ""))) / (parseInt(totalCasesUSA.replace(/,/g, "")))
        *100).toLocaleString("en", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
 
            // appending data to UI
