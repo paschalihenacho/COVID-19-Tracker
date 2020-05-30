@@ -47,7 +47,7 @@ function getData(user_country){
     }
     
     $.ajax(settings).done(function (response) {
-        console.log(response);
+       // console.log(response);
     })
 	.then( response => {
 		return response.json();
