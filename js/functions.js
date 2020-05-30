@@ -1,3 +1,4 @@
+
 //============Begin Country Stats (United States)===================//
 var countryURL = "https://covid-19.dataflowkit.com/v1/usa";
 $.ajax({
@@ -36,7 +37,7 @@ $.ajax({
     method: "GET",
    
    }).then(function(stateData) {
-  // console.log(stateData)
+   console.log(stateData)
    var recovered, death, positive;
 
    // 4 empty arrays for chart
@@ -50,12 +51,12 @@ $.ajax({
          positive.push(obj.positive)
          recovered.push(obj.recovered)
          death.push(obj.death)
-         
+
    })
     
  var myChart = document.getElementById('usaChart').getContext('2d');
  
-   var chart = new Chart(myChart, {
+    myChart = new Chart(myChart, {
      type: 'bar',
      data: {
          labels: state,
@@ -96,3 +97,86 @@ $.ajax({
      }
  })
 })
+
+//============End Country Stats (United States)===================//
+
+
+$.ajax({
+    url: "https://covidtracking.com/api/v1/us/daily.json",
+    method: "GET",
+   
+   }).then(function(data) {
+   console.log(data)
+   var recovered, death, total;
+
+   // 4 empty arrays for chart
+    var dateChecked = []
+    var total = []
+    var recovered = []
+    var death = []
+ 
+     $.each(data, function(id, obj){
+        dateChecked.push(obj.dateChecked)//(moment(dateChecked.format('LL')))
+        total.push(obj.total)
+         recovered.push(obj.recovered)
+         death.push(obj.death)
+         
+        // console.log(dateChecked)
+         
+   })
+    
+ var uschart = document.getElementById('usChart').getContext('2d');
+ 
+ uschart = new Chart(uschart, {
+     type: 'bar',
+     data: {
+         labels: dateChecked,
+         datasets: [
+             {
+                 label: "Confirmed Cases",
+                 data: total,
+                 fill: false,
+                 backgroundColor: "#f1c40f",
+                 minBarLength: 100
+             },
+             {
+                 label: "Recovered Cases",
+                 data: recovered,
+                 fill: true,
+                 backgroundColor: "green",
+                 minBarLength: 100
+             },
+             {
+                label: "Deceased",
+                data: death,
+                fill: true,
+                backgroundColor: "red",
+                minBarLength: 200
+            }
+         ]
+     },
+     options:{
+        title: {
+            display: true,
+            text: 'United States Timeline'
+        },
+
+        scales: {
+            xAxes: [{
+                stacked: true,  
+            }],
+            yAxes: [{
+                stacked: true
+            }]
+        }
+      }
+ })
+})
+// // FORMAT DATES
+// const monthsNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// function formatDate(dateChecked){
+// 	let date = new Date(dateChecked);
+
+// 	return `${date.getDate()} ${monthsNames[date.getMonth()]}`;
+// }
