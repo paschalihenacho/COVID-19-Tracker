@@ -33,15 +33,17 @@ Mankind has been plagued by COVID-19 with no end in sight.  We created an app th
 
 - [Unsplash](Icon Image by CDC on unsplash.com)
 - [ExpDev07](https://github.com/ExpDev07/coronavirus-tracker-api)
-- [Apify](https://apify.com/covid-19 )
+- [Apify](https://apify.com/covid-19)
 - [Coding-Shiksha](https://codingshiksha.com)
-- [Chart.js](https://www.chartjs.org/ )
+- [Chart.js](https://www.chartjs.org/)
 - [The-Virus-Tracker](https://thevirustracker.com)
 - [Geiplugin](https://www.geoplugin.com/webservices/javascript)
 - [DJL0LTrp0RA-Youtube-channel](https://www.youtube.com/channel/UC8n8ftV94ZU_DJLOLtrpORA)
 - [Materialize-CSS](https://materializecss.com/)
-- [Bootstrap-4](https://getbootstrap.com/ )
+- [Bootstrap-4](https://getbootstrap.com/)
 - [The-COVID-TRACKING-PROJECT](https://covidtracking.com/api)
+- [Customizing-Life](https://customizinglife.com/setting-goals/)
+- [WebStockReview](https://webstockreview.net/explore/goal-clipart-future-goal/)
 
 ## License
 
